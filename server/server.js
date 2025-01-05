@@ -5,7 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import rubberDuckRoutes from './routes/rubberDucks.js'; // Import the routes
-import userRoutes from './routes/user.js'; // Import the routes
+import userRoutes from './routes/userRoutes.js'; // Import the routes
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
