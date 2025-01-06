@@ -7,7 +7,7 @@ const BotPage = () => {
 
   const handleSend = () => {
     if (input.trim()) {
-      setMessages([...messages, { text: input, sender: 'user' }]);
+        setMessages([...messages, { text: input, sender: 'user' }]);
       setInput('');
 
       // Simulate bot response
