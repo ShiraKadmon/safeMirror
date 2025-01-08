@@ -1,9 +1,8 @@
-const User = require('../models/user');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+import User from '../models/user.js';
+import bcrypt from 'bcryptjs';
 
-const createUser = async (req, res) =>{
-    const { name, email, password, age } = req.body;
+export const createUser = async (req, res) =>{
+    const { name, email, birthDate, password, phoneNumber } = req.body;
     try {
         const existingUser = await User.findOne({ email });
         if (existingUser) {
@@ -13,15 +12,17 @@ const createUser = async (req, res) =>{
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
         // create user
-        const newUser = new User({ name, email, password: hashedPassword, age });
+        const newUser = new User({ name, email, birthDate, password: hashedPassword, phoneNumber});
         await newUser.save();
+        console.log(newUser.birthDate);
+       
         res.status(201).send({ message: 'User created successfully!' });
-    } catch (error) {
+    } catch {
         res.status(500).send({ error: 'Error creating user' });
     }
 }
 
-const loginUser = async (req, res) =>{
+export const loginUser = async (req, res) =>{
     const { email, password } = req.body;
     try {
       const user = await User.findOne({ email });
@@ -35,26 +36,8 @@ const loginUser = async (req, res) =>{
       }
   
       res.status(200).send({ message: 'Login successful' });
-    } catch (error) {
+    }  catch{
       res.status(500).send({ error: 'Error logging in' });
     }
   }
 
-  const getUser = async (req, res) => {
-    try {
-      const user = await User.findById(req.params.id).select('-password'); // without the password
-      if (!user) {
-        return res.status(404).json({ error: 'User not found' });
-      }
-      res.status(200).json(user);
-    } catch (error) {
-      res.status(500).json({ error: 'Server error' });
-    }
-  }
-
-  module.exports = {
-    createUser,
-    loginUser,
-    getUser,
-   
-  };
