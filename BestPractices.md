@@ -1,11 +1,6 @@
 # Best Practices for Implementing a Full Stack Feature
 
 
-### Gili changes
-Now I will commit this change
-
-
-
 When working with a full-stack application, especially in a collaborative environment, it's crucial to follow best practices to ensure smooth development and maintainability. Here are the steps and practices to implement a new feature effectively in this project:
 
 1. Understand the Feature Requirements
