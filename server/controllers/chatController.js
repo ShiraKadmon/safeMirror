@@ -6,11 +6,11 @@ dotenv.config();
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
-const dailyTips = [
+{/*const dailyTips = [
   "הטיפ של היום: חשוב להעריך את עצמך כפי שאת, גם אם זה לא תמיד קל.",
   "המדיה החברתית יכולה להיות מבלבלת. חשוב לזכור שמה שנראה שם לא תמיד משקף את המציאות.",
   "לא משנה איך את נראית, את מדהימה בדיוק כפי שאת!"
-];
+];*/}
 
 const analyzeSentiment = (text) => {
   if (text.includes('לא אוהבת את עצמי') || text.includes('מרגישה רע')) {
@@ -29,7 +29,7 @@ const moderateMessage = (message) => {
   return false;
 };
 
-  const getResponseBasedOnAge = (userAge, query) => {
+  const getResponseBasedOnAge = (userAge) => {
     if (userAge < 13) {
       return `אה, אני רואה שזו שאלה מעניינת! גיל 12 ומטה אוהבים לדעת על איך להיות חברים טובים!`;
     }
