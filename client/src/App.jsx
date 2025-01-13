@@ -13,6 +13,10 @@ function App() {
           <img src={projectLogo} alt="Logo" className={styles.appLogo} />
           <nav className={styles.appNav}>
             <Link to="/" className={styles.appLink}>Home</Link>
+            <Link to="/login" className={styles.appLink}>Login</Link>
+            <Link to="/signup" className={styles.appLink}>Sign Up</Link>
+            <Link to="/chatbot" className={styles.appLink}>Chat Bot</Link>
+            <Link to="/positivealerts" className={styles.appLink}>Positive Alerts</Link>
           </nav>
         </header>
         <main className={styles.main}>
