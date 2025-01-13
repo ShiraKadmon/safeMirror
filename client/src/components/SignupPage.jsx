@@ -6,11 +6,12 @@ function SignupPage() {
     const [email, setEmail] = useState('');
     const [birthDate, setBirthDate] = useState('');
     const [password, setPassword] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('');  // Add a new state variable for phone number
 
     const handleSignup = (e) => {
         e.preventDefault();
         // Here, add logic to handle the sign up, potentially sending data to a server
-        console.log(name, email, birthDate, password);  // Log the birth date instead of age
+        console.log(name, email, birthDate, password,phoneNumber);  // Log the birth date instead of age
     };
 
     return (
@@ -32,6 +33,10 @@ function SignupPage() {
                 <div>
                     <label>Password:</label>
                     <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                </div>
+                <div>
+                    <label>Phone Number:</label>
+                    <input type="Phone Number" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
                 </div>
                 <button type="submit">Sign Up</button>
                 <p>Already have an account? <Link to="/login">Log In</Link></p>
