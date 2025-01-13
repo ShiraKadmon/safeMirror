@@ -1,10 +1,6 @@
-
 import { Link } from 'react-router'
 import styles from './Buttons.module.css';
-import React from "react";
 
-
-const apiUrl = import.meta.env.VITE_SERVER_API_URL;
 
 const BotButton = () => {      
   return (

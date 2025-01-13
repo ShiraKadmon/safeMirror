@@ -1,0 +1,35 @@
+.container {
+    font-family: Arial, sans-serif;
+    background-color: #f8dada;
+    color: #4a4a4a;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+    max-width: 80%;
+    margin: 20px auto;
+    border: 1px solid #FF7D9C;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .header {
+    background-color: #53474F;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .headertext {
+    font-size: 20px;
+    color: #FFFFFF;
+  }
+
+  .content {
+    font-size: 24px;
+    color: #4a4a4a;
+    line-height: 1.6;
+    margin: 10px;
+  }
