@@ -18,7 +18,8 @@
 .botpicture {
   position: center;
   align-self: center;
-  width: 500px; 
+  width: 400px; 
+  height: auto;
 }
 
 .imagebutton {
@@ -35,8 +36,17 @@
 
 .imagebutton img {
   display: block;
-  width: 500px;
+  width: 400px;
   height: auto;
+}
+
+.container {
+  display: flex; /* מפעיל Flexbox */
+  flex-direction: row; /* מסדר את הילדים לרוחב */
+  justify-content: center; /* ממרכז את הילדים אופקית */
+  align-items: center; /* ממרכז את הילדים אנכית */
+  gap: 10px; /* רווח בין האלמנטים */
+  padding: 20px;
 }
 
 
