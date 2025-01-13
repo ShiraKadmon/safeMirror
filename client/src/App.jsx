@@ -25,8 +25,7 @@ function App() {
         <main className={styles.main}>
           <Routes>
             <Route path="/home" element={<Home />} />
-            <Route path="/chatbot" element={<BotPage />} />
-            <Route path="/positivecontent" element={<PositiveContentPage />} />
+            <Route path="/chatbot" element={<BotPage />} />          
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
