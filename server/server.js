@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import userRoutes from './routes/userRoutes.js'; // Import the routes
 import awarenessNotificationRoutes from './routes/awarenessNotificationRoutes.js';
-import {scheduledNotifications} from './controllers/scheduledNotificationController.js';
+import {scheduleDailyNotifications} from './controllers/scheduledNotificationController.js';
 
 
 dotenv.config();
@@ -21,9 +21,11 @@ app.use(cors({
 mongoose.connect(process.env.MONGODB_URL, {
 })
 .then(() => {console.log('Connected to MongoDB')
-scheduledNotifications();
+  scheduleDailyNotifications();
+  return null;
 })
-.catch(err => console.error('Error connecting to MongoDB:', err));
+.catch(err => { console.error('Error connecting to MongoDB:', err)
+throw err; });
 
 
 // Use the routes file for all `/ducks` routes
