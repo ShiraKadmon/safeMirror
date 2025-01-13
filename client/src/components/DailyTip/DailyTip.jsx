@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./DailyTip.module.css";
 
 const DailyTip = () => {
@@ -10,7 +9,7 @@ const DailyTip = () => {
       <h1 className={styles.headertext}>Positive Content</h1>
     </div>
     <div className={styles.content}>
-      <p className={styles.content}>{tip}</p>
+      <p>{tip}</p>
     </div>
   </div>
   );
