@@ -1,6 +1,10 @@
+import React from "react";
 import { BrowserRouter, Routes, Route, Link } from 'react-router'
 import Home from './pages/HomePage/HomePage';
 import styles from './styles/App.module.css';
+import BotPage from './pages/BotPage/BotPage';
+import ToolsPage from './pages/ToolsPage/ToolsPage';
+import PositiveContentPage from './pages/PositiveContentPage/PositiveContentPage';
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 import UserProfile from './components/UserProfile';
@@ -23,13 +27,14 @@ function App() {
         <main className={styles.main}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/chatbot" element={<BotPage />} />          
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
           </Routes>
         </main>
         <footer className={styles.footer}>
-          <p>&copy; 2024 My App</p>
+          <p>&copy; 2025 Safe Mirror</p>
         </footer>
       </div>
     </BrowserRouter>

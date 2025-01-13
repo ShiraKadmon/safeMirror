@@ -1,0 +1,36 @@
+.container {
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+  .buttonContainer {
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .title {
+    color: #333;
+    font-size: 24px;
+  }
+  
+  .content {
+    color: #666;
+    font-size: 16px;
+  }
+
+  .button {
+    padding: 10px 20px;
+    background-color: #FF7D9C;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 0;
+  }
+  
+  .button:hover {
+    background-color: #ff517a;
+  }
