@@ -6,7 +6,7 @@ import BotPage from './pages/BotPage/BotPage';
 import ToolsPage from './pages/ToolsPage/ToolsPage';
 import PositiveContentPage from './pages/PositiveContentPage/PositiveContentPage';
 
-import projectLogo from './assets/project-logo.png'
+import projectLogo from './assets/Safe-Mirror-logo.png'
 
 function App() {
   return (
@@ -16,6 +16,10 @@ function App() {
           <img src={projectLogo} alt="Logo" className={styles.appLogo} />
           <nav className={styles.appNav}>
             <Link to="/" className={styles.appLink}>Home</Link>
+            <Link to="/" className={styles.appLink}>Log In</Link>
+            <Link to="/" className={styles.appLink}>Sign Up</Link>
+            <Link to="/" className={styles.appLink}>Daily Tip</Link>
+            <Link to="/" className={styles.appLink}>Chat Bot</Link>
           </nav>
         </header>
         <main className={styles.main}>
