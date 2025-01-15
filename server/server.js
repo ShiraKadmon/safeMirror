@@ -1,28 +1,26 @@
 import express from 'express';
 import chatRoutes from './routes/chatRoutes.js';
 import notificationRoutes from './routes/notificationRoutes.js';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import userRoutes from './routes/userRoutes.js'; // Import the routes
+import userRoutes from './routes/userRoutes.js';
 import awarenessNotificationRoutes from './routes/awarenessNotificationRoutes.js';
 import {scheduleDailyNotifications} from './controllers/scheduledNotificationController.js';
-
 
 dotenv.config();
 
 const app = express();
 
+// Enable CORS for requests from 'http://localhost:3000'
+app.use(cors({
+  origin: process.env.CLIENT_URL || 'http://localhost:3000',
+}));
+
 app.use(express.json());  
 app.use('/chat', chatRoutes);
 app.use('/notifications', notificationRoutes);
 app.use(express.json());
-
-app.use(cors({
-  origin: process.env.CLIENT_URL
-}));
 
 // connect to mongo
 mongoose.connect(process.env.MONGODB_URL, {
@@ -34,12 +32,11 @@ mongoose.connect(process.env.MONGODB_URL, {
 .catch(err => { console.error('Error connecting to MongoDB:', err)
 throw err; });
 
-
 // Use the routes file for all `/ducks` routes
 app.use('/user', userRoutes);
 app.use('/awarenessNotification', awarenessNotificationRoutes);
 
-const PORT = 3000;
+const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
