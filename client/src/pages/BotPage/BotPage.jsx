@@ -87,6 +87,11 @@ const BotPage = () => {
           className="chatbot-input"
           value={input}
           onChange={e => setInput(e.target.value)}
+          onKeyDown={e => {
+            if (e.key === 'Enter') {
+              handleSend();
+            }
+          }}
           placeholder="תקלידי הודעה... "
         />
         <button className="chatbot-send-button" onClick={handleSend} disabled={loading}>
