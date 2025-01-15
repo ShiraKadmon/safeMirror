@@ -31,44 +31,63 @@
     background-color: #ffecec;
   }
   
+  .chatbot-message-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .chatbot-message-container.user-message-container {
+    justify-content: flex-end;
+  }
+  
+  .chatbot-message-container.bot-message-container {
+    justify-content: flex-start;
+  }
+
+  .chatbot-message-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    color: #FF7D9C;
+  }
+  
   .chatbot-message {
-    margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
     max-width: 80%;
+    word-wrap: break-word;
     text-align: right;
+    direction: rtl;
   }
-  
+
   .user-message {
     background-color: #FF7D9C;
     color: white;
-    align-self: flex-end;
-    text-align: right;
-  }
+}
+
+.bot-message {
+  background-color: white;
+  border: 1px solid #FF7D9C;
+}
+
+.chatbot-input-container {
+  display: flex;
+  padding: 10px;
+  background-color: #fff;
+  border-top: 1px solid #FF7D9C;
+}
   
-  .bot-message {
-    background-color: white;
-    border: 1px solid #FF7D9C;
-    align-self: flex-start;
-  }
+.chatbot-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #FF7D9C;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 16px;
+  direction: rtl;
+  text-align: right;
   
-  .chatbot-input-container {
-    display: flex;
-    padding: 10px;
-    background-color: #fff;
-    border-top: 1px solid #FF7D9C;
-  }
-  
-  .chatbot-input {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #FF7D9C;
-    border-radius: 5px;
-    margin-right: 10px;
-    font-size: 16px;
-    direction: rtl;
-    text-align: right;
-  }
+}
   
   .chatbot-send-button {
     background-color: #FF7D9C;

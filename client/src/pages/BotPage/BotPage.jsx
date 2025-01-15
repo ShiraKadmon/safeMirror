@@ -7,6 +7,7 @@ const BotPage = () => {
   const [loading, setLoading] = useState(false);
   
   const userName= "אילה"; //We will subtract the name from the data base
+  const userAge = 15; //We will subtract the age from the data base 
 
   useEffect(() => {
     //Initial message of the bot
@@ -18,7 +19,6 @@ const BotPage = () => {
   const handleSend = async () => {
     if (input.trim()) {
       const userMessage = input;
-      const userAge = 15; //We will subtract the age from the data base
       const updatedMessages = [...messages, { text: userMessage, sender: 'user' }];
       setMessages(updatedMessages);
       setInput('');
@@ -60,9 +60,23 @@ const BotPage = () => {
         {messages.map((msg, index) => (
           <div
             key={index}
-            className={`chatbot-message ${msg.sender === 'user' ? 'user-message' : 'bot-message'}`}
+            className={`chatbot-message-container ${
+              msg.sender === 'user' ? 'user-message-container' : 'bot-message-container'
+            }`}
           >
-            {msg.text}
+              {msg.sender === 'bot' && (
+              <div className="chatbot-message-icon">
+                <i className="fas fa-robot"></i>
+              </div>
+            )}
+            <div className={`chatbot-message ${msg.sender === 'user' ? 'user-message' : 'bot-message'}`}>
+              {msg.text}
+            </div>
+            {msg.sender === 'user' && (
+              <div className="chatbot-message-icon">
+                <i className="fas fa-user"></i>
+              </div>
+            )}
           </div>
         ))}
         {loading && <div className="bot-loading">הבוטית מקלידה...</div>}
