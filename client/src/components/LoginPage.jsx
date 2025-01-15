@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { Link , useNavigate } from 'react-router-dom';
-
-
+import { useAuth } from '../AuthProvider';
 
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const { setIsLoggedIn, setEmailg } = useAuth(); // Ensure setUser is destructured
+
+    
 
 
     const handleLogin = async (e) => {
@@ -26,6 +28,8 @@ function LoginPage() {
             if (response.ok) {
                 const result = await response.json();
                 console.log('Login successful:', result);
+                setIsLoggedIn(true);
+                setEmailg(email); // Set user data globally
                 navigate('/home');
             } else {
                 console.error('Login failed:', response.status, response.statusText);

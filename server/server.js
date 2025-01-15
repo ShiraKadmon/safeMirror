@@ -1,8 +1,8 @@
 import express from 'express';
 import chatRoutes from './routes/chatRoutes.js';
 import notificationRoutes from './routes/notificationRoutes.js';
-import path from 'path';
-import { fileURLToPath } from 'url';
+// import path from 'path';
+// import { fileURLToPath } from 'url';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
@@ -20,6 +20,7 @@ app.use(cors()); // Allow all origins
 app.use(express.json());  
 app.use('/chat', chatRoutes);
 app.use('/notifications', notificationRoutes);
+
 app.use(express.json());
 
 app.use(cors({
@@ -41,7 +42,7 @@ throw err; });
 app.use('/user', userRoutes);
 app.use('/awarenessNotification', awarenessNotificationRoutes);
 
-const PORT = 3000;
+const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
