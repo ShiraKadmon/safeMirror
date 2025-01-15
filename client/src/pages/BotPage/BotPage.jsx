@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import './BotPage.css';
+import chatbotIcon from "/src/assets/chatbot-icon.jpg";
 
 const BotPage = () => {
   const [messages, setMessages] = useState([]);
@@ -55,6 +56,9 @@ const BotPage = () => {
     <div className="chatbot-container">
       <div className="chatbot-header">
         <h2>ChatBot</h2>
+        <div className="chatbot-header-icon-container">
+          <img src={chatbotIcon} alt="ChatBot Icon" className="chatbot-header-icon" />
+        </div>
       </div>
       <div className="chatbot-messages">
         {messages.map((msg, index) => (
