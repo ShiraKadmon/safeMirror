@@ -109,3 +109,21 @@ export const updateUserDetails = async (req, res) => {
       res.status(500).json({ error: "Internal server error." });
   }
 };
+
+export const getNameByEmail = async (req, res) => {
+  const { email } = req.query; // Get the email from query parameters
+
+  try {
+      // Find the user by email
+      const user = await User.findOne({ email });
+
+      if (user) {
+          res.status(200).json({ name: user.name }); // Respond with the user's name
+      } else {
+          res.status(404).json({ error: 'User not found' }); // If no user is found
+      }
+  } catch (error) {
+      console.error('Error fetching user name:', error);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+};

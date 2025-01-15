@@ -8,11 +8,19 @@ import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 import UserProfile from './components/UserProfile';
 import ProtectedRoute from "./ProtectedRoute";
+import backgroundImage from './assets/background-image.jpg';
+
 
 
 function App() {
   return (
-    <div className={styles.app}>
+    <div className={styles.app}
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
       <header className={styles.appHeader}>
         <img src={projectLogo} alt="Logo" className={styles.appLogo} />
         <nav className={styles.appNav}>
