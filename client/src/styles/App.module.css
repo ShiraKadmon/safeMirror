@@ -1,6 +1,7 @@
-/* App.module.css */
 .app {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .appHeader {
@@ -10,6 +11,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .appLogo {
@@ -25,25 +27,34 @@
   color: white;
   text-decoration: none;
   font-size: 1.2em;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .appLink:hover {
   text-decoration: underline;
+  color: #ffd1dc;
+  transform: scale(1.05);
 }
 
 .main {
-  padding: 20px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #FFDCE8;
-  height: 100vh;
 }
 
 .footer {
-  padding: 10px;
+  padding: 15px;
   background-color: #53474F;
   color: white;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
   text-align: center;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: auto;
+}
+
+.footer p {
+  margin: 0;
 }
   
