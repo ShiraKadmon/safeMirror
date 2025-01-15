@@ -26,12 +26,12 @@ function UserProfile() {
             } catch (err) {
                 console.error('Error fetching user details:', err);
                 setError('An error occurred while fetching user details');
-                setUserData(null);
+                setUser(null);
             }
         };
 
         fetchUserData();
-    }, []);
+    }, [email]);
 
     const handleChange = (event) => {
         const { name, value } = event.target;

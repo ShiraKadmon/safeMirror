@@ -4,9 +4,9 @@ import styles from './styles/App.module.css';
 import BotPage from './pages/BotPage/BotPage';
 // import PositiveContentPage from './pages/PositiveContentPage/PositiveContentPage';
 import projectLogo from './assets/Safe-Mirror-logo.png'
-import LoginPage from './components/LoginPage';
-import SignupPage from './components/SignupPage';
-import UserProfile from './components/UserProfile';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
+import UserProfile from './pages/UserProfile';
 import ProtectedRoute from "./ProtectedRoute";
 import backgroundImage from './assets/background-image.jpg';
 
