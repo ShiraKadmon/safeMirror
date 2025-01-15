@@ -42,7 +42,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #FFDCE8;
+  {/*background-color: #FFDCE8;*/}
 }
 
 .footer {

@@ -7,10 +7,17 @@ import projectLogo from './assets/Safe-Mirror-logo.png'
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import UserProfile from './pages/UserProfile';
+import backgroundImage from './assets/background-image.jpg';
 
 function App() {
   return (
-      <div className={styles.app}>
+      <div className={styles.app}
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
         <header className={styles.appHeader}>
           <img src={projectLogo} alt="Logo" className={styles.appLogo} />
           <nav className={styles.appNav}>
