@@ -1,5 +1,8 @@
 import User from '../models/user.js';
 import bcrypt from 'bcryptjs';
+import { sendPhoneNotification } from '../services/phonNotificationService.js';
+import notification from '../models/notification.js';
+
 
 export const createUser = async (req, res) =>{
     const { name, email, birthDate, password, phoneNumber } = req.body;
@@ -46,6 +49,10 @@ export const createUser = async (req, res) =>{
 
 export const loginUser = async (req, res) =>{
     const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).json({ error: 'נא להזין מייל וסיסמה' });
+    }
+
     try {
       const user = await User.findOne({ email });
       if (!user) {
@@ -56,12 +63,31 @@ export const loginUser = async (req, res) =>{
       if (!isMatch) {
         return res.status(400).json({ error: 'Invalid credentials' });
       }
-  
-      res.status(200).send({ message: 'Login successful' });
-    }  catch{
-      res.status(500).send({ error: 'Error logging in' });
-    }
-  }
+      console.log('user login succesfuly:', user.name);
+
+      const messages = await notification.find({ ageGroup: user.ageGroup });
+
+      if (messages.length > 0) {
+          const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+
+          // send phone notification
+          await sendPhoneNotification(user.phoneNumber, randomMessage.message);
+        
+          // send notification to home page
+          res.status(200).json({
+              message: randomMessage.message,
+              userName: user.name
+          });
+        } else {
+          res.status(404).json({ message: '❌ לא נמצאו הודעות מתאימות בקבוצת גיל זו.' });
+      }
+      } catch (error) {
+          console.error('❌ שגיאה בתהליך ההתחברות:', error.message);
+          res.status(500).json({ error: '❌ שגיאה בתהליך ההתחברות.' });
+      }
+    };
+
+    
 
   export const getUserByEmail = async (req, res) => {
     const { email } = req.query; // Get email from query parameters
