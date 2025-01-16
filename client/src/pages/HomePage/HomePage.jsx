@@ -18,10 +18,8 @@ function Home() {
     // Check if message exists in location.state
     if (location.state?.message) {
       setMessage(location.state.message); // Store the message in state
-    } else {
-      navigate('/login'); // Redirect to login if no message is provided
     }
-  }, [location.state, navigate]);
+  }, [location.state]);
 
 
   const goToBot = () => {

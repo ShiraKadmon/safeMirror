@@ -7,7 +7,7 @@ import { useAuth } from '../../AuthProvider';
 const BotPage = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-  const { email } = useAuth(); // Access global user data
+  // const { email } = useAuth(); // Access global user data
   const [loading, setLoading] = useState(false);
   
   const {name} = useAuth(); //We will subtract the name from the data base
