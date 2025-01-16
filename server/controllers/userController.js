@@ -77,7 +77,8 @@ export const loginUser = async (req, res) =>{
           // send notification to home page
           res.status(200).json({
               message: randomMessage.message,
-              userName: user.name
+              userName: user.name,
+              age: user.ageGroup
           });
         } else {
           res.status(404).json({ message: '❌ לא נמצאו הודעות מתאימות בקבוצת גיל זו.' });
