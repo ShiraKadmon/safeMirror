@@ -35,13 +35,14 @@ function App() {
       </header>
       <main className={styles.main}>
        <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/chatbot" element={<BotPage />} />          
-            <Route path="/profile" element={<UserProfile />} />
+      
+            <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+            <Route path="/chatbot" element={<ProtectedRoute> <BotPage /></ProtectedRoute>} />          
+            <Route path="/profile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
             <Route path="/" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
-            <Route path="/forum" element={<ForumPage />} />
-            <Route path="/professional-support" element={< ProfessionalSupportPage />} />
+            <Route path="/forum" element={<ProtectedRoute> <ForumPage /> </ProtectedRoute>} />
+            <Route path="/professional-support" element={<ProtectedRoute> < ProfessionalSupportPage /> </ProtectedRoute>} />
           </Routes>
         </main>
         <footer className={styles.footer}>
