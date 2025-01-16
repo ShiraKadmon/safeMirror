@@ -18,7 +18,7 @@ router.get('/name', getNameByEmail);
 router.get('/test-fetch', async (req, res) => {
     try {
         const messages = await notification.find({});
-        console.log(messages);
+        // console.log(messages);
         res.status(200).json(messages);
     } catch (error) {
         res.status(500).json({ error: error.message });

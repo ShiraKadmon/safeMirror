@@ -25,10 +25,10 @@ function LoginPage() {
 
             if (response.ok) {
                 const result = await response.json();
-                console.log('Login successful:', result);
+                console.log('Login successful:', result.message);
                 setIsLoggedIn(true);
                 setEmailg(email);
-                navigate('/home');
+                navigate('/home', { state: { message: result.message } }); // Pass the message
             } else {
                 console.error('Login failed:', response.status, response.statusText);
                 alert('Login failed. Please check your email and password.');
