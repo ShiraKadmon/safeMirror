@@ -9,8 +9,7 @@ import SignupPage from './pages/SignupPage';
 import UserProfile from './pages/UserProfile';
 import ProtectedRoute from "./ProtectedRoute";
 import backgroundImage from './assets/background-image.jpg';
-import ProfessionalSupportPage from './pages/ProfessionalSupportPage';
-
+import ProfessionalSupportPage from './pages/ProfessionalSupportPage';import ForumPage from './pages/ForumPage';
 
 
 function App() {
@@ -31,6 +30,7 @@ function App() {
           <Link to="/chatbot" className={styles.appLink}>Chat Bot</Link>
           <Link to="/profile" className={styles.appLink}>Profile</Link>
           <Link to="/professional-support" className={styles.appLink}>Professional-Support</Link>
+          <Link to="/forum" className={styles.appLink}>Forum</Link>
         </nav>
       </header>
       <main className={styles.main}>
@@ -40,13 +40,14 @@ function App() {
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
+            <Route path="/forum" element={<ForumPage />} />
             <Route path="/professional-support" element={< ProfessionalSupportPage />} />
           </Routes>
-      </main>
-      <footer className={styles.footer}>
-        <p>&copy; 2025 Safe Mirror</p>
-      </footer>
-    </div>
+        </main>
+        <footer className={styles.footer}>
+          <p>&copy;SafeMirror 2025</p>
+        </footer>
+      </div>
   );
 }
 
