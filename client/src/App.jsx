@@ -1,14 +1,5 @@
 import { Routes, Route, Link } from 'react-router';
 import { lazy, Suspense } from 'react';
-import styles from './styles/App.module.css';
-// import PositiveContentPage from './pages/PositiveContentPage/PositiveContentPage';
-import projectLogo from './assets/Safe-Mirror-logo.png'
-import LoginPage from './pages/LoginPage';
-import SignupPage from './pages/SignupPage';
-import UserProfile from './pages/UserProfile';
-// import ProtectedRoute from "./ProtectedRoute";
-import backgroundImage from './assets/background-image.jpg';
-import Loading from "./components/Loading.jsx";
 
 const Home = lazy(() => import('./pages/HomePage/HomePage'));
 const BotPage = lazy(() => import('./pages/BotPage/BotPage'));
@@ -17,6 +8,21 @@ const SignupPage = lazy(() => import('./pages/SignupPage'));
 const UserProfile = lazy(() => import('./pages/UserProfile'));
 const ProfessionalSupportPage = lazy(() => import('./pages/ProfessionalSupportPage'));
 const ForumPage = lazy(() => import('./pages/ForumPage'));
+
+//import Home from './pages/HomePage/HomePage';
+//import BotPage from './pages/BotPage/BotPage';
+//import LoginPage from './pages/LoginPage';
+//import SignupPage from './pages/SignupPage';
+//import UserProfile from './pages/UserProfile';
+//import ProfessionalSupportPage from './pages/ProfessionalSupportPage';
+//import ForumPage from './pages/ForumPage';
+
+import styles from './styles/App.module.css';
+// import PositiveContentPage from './pages/PositiveContentPage/PositiveContentPage';
+import projectLogo from './assets/Safe-Mirror-logo.png'
+import ProtectedRoute from "./ProtectedRoute";
+import backgroundImage from './assets/background-image.jpg';
+import Loading from "./components/Loading.jsx";
 
 function App() {
   return (
