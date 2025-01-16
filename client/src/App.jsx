@@ -9,6 +9,7 @@ import SignupPage from './pages/SignupPage';
 import UserProfile from './pages/UserProfile';
 import ProtectedRoute from "./ProtectedRoute";
 import backgroundImage from './assets/background-image.jpg';
+import ProfessionalSupportPage from './pages/ProfessionalSupportPage';
 
 
 
@@ -29,38 +30,18 @@ function App() {
           <Link to="/signup" className={styles.appLink}>Sign Up</Link>
           <Link to="/chatbot" className={styles.appLink}>Chat Bot</Link>
           <Link to="/profile" className={styles.appLink}>Profile</Link>
+          <Link to="/professional-support" className={styles.appLink}>Professional-Support</Link>
         </nav>
       </header>
       <main className={styles.main}>
-      <Routes>
-            <Route path="/signup" element={<SignupPage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route
-                path="/home"
-                element={
-                    <ProtectedRoute>
-                        <Home />
-                    </ProtectedRoute>
-                }
-            />
-            <Route
-                path="/chatbot"
-                element={
-                    <ProtectedRoute>
-                        <BotPage />
-                    </ProtectedRoute>
-                }
-            />
-            <Route
-                path="/profile"
-                element={
-                    <ProtectedRoute>
-                        <UserProfile />
-                    </ProtectedRoute>
-                }
-            />
+       <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/chatbot" element={<BotPage />} />          
+            <Route path="/profile" element={<UserProfile />} />
             <Route path="/" element={<LoginPage />} />
-        </Routes>
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/professional-support" element={< ProfessionalSupportPage />} />
+          </Routes>
       </main>
       <footer className={styles.footer}>
         <p>&copy; 2025 Safe Mirror</p>
