@@ -1,15 +1,46 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate } from 'react-router-dom';
+import { useAuth } from '../AuthProvider';
 
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
+    const { setIsLoggedIn, setEmailg } = useAuth(); // Ensure setUser is destructured
 
-    const handleLogin = (e) => {
+    
+
+
+    const handleLogin = async (e) => {
         e.preventDefault();
-        // Add logic to handle login
-        console.log(email, password);
+    
+        const loginData = { email, password }; // Ensure these variables are defined in your component's state
+    
+        try {
+            const response = await fetch('http://localhost:5000/user/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(loginData),
+            });
+    
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Login successful:', result);
+                setIsLoggedIn(true);
+                setEmailg(email); // Set user data globally
+                navigate('/home');
+            } else {
+                console.error('Login failed:', response.status, response.statusText);
+                alert('Login failed. Please check your email and password.');
+            }
+        } catch (error) {
+            console.error('Error occurred during login:', error);
+        }
     };
+    
+
 
     return (
         <div>

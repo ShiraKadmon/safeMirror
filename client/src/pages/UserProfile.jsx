@@ -1,16 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from "../AuthProvider";
+import styles from '../styles/UserProfile.module.css'; // Import the styles
 
 function UserProfile() {
-    // Initial state with placeholder data, assuming user is already authenticated
     const [user, setUser] = useState(null);
     const { email } = useAuth(); // Access global user data
     const [error, setError] = useState('');
 
-
-    // Simulate fetching data from a server on component mount
     useEffect(() => {
-        // Fetch user data from an API or from local storage
         const fetchUserData = async () => {
             try {
                 const response = await fetch(`http://localhost:5000/user/details?email=${email}`);
@@ -77,32 +74,48 @@ function UserProfile() {
     };
 
     return (
-        <div>
-            <h2>User Profile</h2>
-            {user ? (
-                <form onSubmit={handleSubmit}>
-                    <div>
-                        <label>Name:</label>
-                        <input type="text" name="name" value={user.name} readOnly />
-                    </div>
-                    <div>
-                        <label>Email:</label>
-                        <input type="text" name="email" value={email} readOnly />
-                    </div>
-                    <div>
-                        <label>Birth Date:</label>
-                        <input type="date" name="birthDate" value={formatDate(user.birthDate)} onChange={handleChange} required />
-                    </div>
-                    <div>
-                        <label>Phone Number:</label>
-                        <input type="tel" name="phoneNumber" value={user.phoneNumber} onChange={handleChange} required />
-                    </div>
-                    <button type="submit">Update Profile</button>
-                </form>
-            ) : (
-                <p>Loading user data...</p>
-            )}
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+        <div className={styles.userProfileContainer}>
+            <div className={styles.userProfileBox}>
+                <h2 className={styles.title}>User Profile</h2>
+                {user ? (
+                    <form onSubmit={handleSubmit} className={styles.form}>
+                        <div className={styles.inputGroup}>
+                            <label>Name:</label>
+                            <input type="text" name="name" value={user.name} readOnly />
+                        </div>
+                        <div className={styles.inputGroup}>
+                            <label>Email:</label>
+                            <input type="text" name="email" value={email} readOnly />
+                        </div>
+                        <div className={styles.inputGroup}>
+                            <label>Birth Date:</label>
+                            <input
+                                type="date"
+                                name="birthDate"
+                                value={formatDate(user.birthDate)}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <div className={styles.inputGroup}>
+                            <label>Phone Number:</label>
+                            <input
+                                type="tel"
+                                name="phoneNumber"
+                                value={user.phoneNumber}
+                                onChange={handleChange}
+                                required
+                            />
+                        </div>
+                        <button type="submit" className={styles.updateButton}>
+                            Update Profile
+                        </button>
+                    </form>
+                ) : (
+                    <p className={styles.loadingText}>Loading user data...</p>
+                )}
+                {error && <p className={styles.errorText}>{error}</p>}
+            </div>
         </div>
     );
 }

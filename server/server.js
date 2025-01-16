@@ -6,15 +6,23 @@ import userRoutes from './routes/userRoutes.js'; // Import the routes
 //import {scheduleDailyNotifications} from './controllers/scheduledNotificationController.js';
 import chatRoutes from './routes/chatRoutes.js';
 
-
 dotenv.config();
 
 const app = express();
 
-app.use(express.json());  
+// Enable CORS for requests from 'http://localhost:3000'
 app.use(cors({
-  origin: process.env.CLIENT_URL
+  origin: process.env.CLIENT_URL || 'http://localhost:3000',
 }));
+
+app.use(express.json());  
+// app.use('/chat', chatRoutes);
+// app.use('/notifications', notificationRoutes);
+
+// app.use(express.json());
+// app.use(cors({
+//   origin: process.env.CLIENT_URL
+// }));
 
 // connect to mongo
 mongoose.connect(process.env.MONGODB_URL, {
@@ -28,7 +36,6 @@ throw err; });
 
 app.use('/user', userRoutes);
 app.use('/chat', chatRoutes);
-
 
 const PORT = 5000;
 app.listen(PORT, () => {

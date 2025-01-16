@@ -90,3 +90,67 @@ export const loginUser = async (req, res) =>{
 
     
 
+  export const getUserByEmail = async (req, res) => {
+    const { email } = req.query; // Get email from query parameters
+
+    if (!email) {
+        return res.status(400).json({ error: 'Email is required' });
+    }
+
+    try {
+        // Find user in the database
+        const user = await User.findOne({ email }).select('name birthDate phoneNumber'); // Retrieve specific fields
+
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        res.status(200).json(user); // Return user data
+    } catch (error) {
+        console.error('Error fetching user:', error);
+        res.status(500).json({ error: 'Server error' });
+    }
+};
+
+export const updateUserDetails = async (req, res) => {
+  const { email , birthDate, phoneNumber } = req.body;
+
+  if (!email) {
+      return res.status(400).json({ error: "Email is required for updates." });
+  }
+
+  try {
+      const user = await User.findOneAndUpdate(
+          { email }, // Filter by email
+          { birthDate, phoneNumber }, // Update these fields
+          { new: true } // Return the updated document
+      );
+
+      if (!user) {
+          return res.status(404).json({ error: "User not found." });
+      }
+
+      res.status(200).json({ message: "User updated successfully.", user });
+  } catch (error) {
+      console.error("Error updating user:", error);
+      res.status(500).json({ error: "Internal server error." });
+  }
+};
+
+export const getNameByEmail = async (req, res) => {
+  const { email } = req.query; // Get the email from query parameters
+
+  try {
+      // Find the user by email
+      const user = await User.findOne({ email });
+
+      if (user) {
+          res.status(200).json({ name: user.name }); // Respond with the user's name
+      } else {
+          res.status(404).json({ error: 'User not found' }); // If no user is found
+      }
+  } catch (error) {
+      console.error('Error fetching user name:', error);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+};
