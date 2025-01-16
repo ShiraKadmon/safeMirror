@@ -3,11 +3,9 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import chatRoutes from './routes/chatRoutes.js';
-import notificationRoutes from './routes/notificationRoutes.js';
 import userRoutes from './routes/userRoutes.js';
-import awarenessNotificationRoutes from './routes/awarenessNotificationRoutes.js';
 import forumRoutes from './routes/forumRoutes.js';
-import {scheduleDailyNotifications} from './controllers/scheduledNotificationController.js';
+
 
 dotenv.config();
 
@@ -31,9 +29,7 @@ mongoose.connect(process.env.MONGODB_URL, {
 throw err; });
 
 app.use('/chat', chatRoutes);
-app.use('/notifications', notificationRoutes);
 app.use('/user', userRoutes);
-app.use('/awarenessNotification', awarenessNotificationRoutes);
 app.use('/forum', forumRoutes);
 
 const PORT = 5000;
