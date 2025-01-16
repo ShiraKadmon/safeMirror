@@ -1,0 +1,83 @@
+.professionalListContainer {
+    font-family: Arial, sans-serif;
+    background-color: #f8dada;
+    color: #4a4a4a;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    max-width: 2000px;
+    margin: 20px auto;
+    border: 1px solid #FF7D9C;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    direction: rtl;
+  }
+  
+  .professionalListHeader {
+    background-color: #53474F;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .professionalListHeader h2 {
+    font-size: 24px;
+  }
+
+  .chatbotHeaderIcon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-image: url('/src/assets/professional-support-icon.jpg');
+    background-size: cover;
+    background-position: 10% 50%;
+    background-repeat: no-repeat;
+  }
+  
+  .professionalList {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffecec;
+  }
+  
+  .professionalItem {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+  }
+  
+  .professionalItem h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4a4a4a;
+  }
+  
+  .professionalItem p {
+    font-size: 16px;
+    color: #4a4a4a;
+  }
+  
+  .contactButton {
+    background-color: #FF7D9C;
+    color: white;
+    border: none; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .contactButton:hover {
+    background-color: #ff517a;
+  }
+  

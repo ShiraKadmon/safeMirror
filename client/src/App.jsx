@@ -8,6 +8,7 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import UserProfile from './pages/UserProfile';
 import backgroundImage from './assets/background-image.jpg';
+import ProfessionalSupportPage from './pages/ProfessionalSupportPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Link to="/" className={styles.appLink}>Login</Link>
             <Link to="/signup" className={styles.appLink}>Sign Up</Link>
             <Link to="/chatbot" className={styles.appLink}>Chat Bot</Link>
+            <Link to="/professional-support" className={styles.appLink}>Professional-Support</Link>
             <Link to="/profile" className={styles.appLink}>Profile</Link>
           </nav>
         </header>
@@ -35,6 +37,7 @@ function App() {
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
+            <Route path="/professional-support" element={< ProfessionalSupportPage />} />
           </Routes>
         </main>
         <footer className={styles.footer}>
