@@ -1,6 +1,6 @@
 import express from 'express';
 import {createUser, loginUser} from '../controllers/userController.js';
-import { getUserByEmail , updateUserDetails , getNameByEmail} from '../controllers/userController.js';
+import { getUserByEmail , updateUserDetails} from '../controllers/userController.js';
 
 const router = express.Router();
 
@@ -14,7 +14,6 @@ router.get('/details', getUserByEmail);
 
 router.put("/update", updateUserDetails);
 
-router.get('/name', getNameByEmail);
 
 
 export default router;

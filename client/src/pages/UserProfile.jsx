@@ -49,6 +49,7 @@ function UserProfile() {
                 },
                 body: JSON.stringify({
                     email: email,
+                    name: user.name,
                     birthDate: formatDate(user.birthDate),
                     phoneNumber: user.phoneNumber,
                 }),
@@ -81,7 +82,7 @@ function UserProfile() {
                     <form onSubmit={handleSubmit} className={styles.form}>
                         <div className={styles.inputGroup}>
                             <label>Name:</label>
-                            <input type="text" name="name" value={user.name} readOnly />
+                            <input type="text" name="name" value={user.name} onChange={handleChange} required />
                         </div>
                         <div className={styles.inputGroup}>
                             <label>Email:</label>
