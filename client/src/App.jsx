@@ -8,6 +8,7 @@ const SignupPage = lazy(() => import('./pages/SignupPage'));
 const UserProfile = lazy(() => import('./pages/UserProfile'));
 const ProfessionalSupportPage = lazy(() => import('./pages/ProfessionalSupportPage'));
 const ForumPage = lazy(() => import('./pages/ForumPage'));
+const PositiveQuestionsPage = lazy(() => import('./pages/PositiveQuestionsPage'));
 
 //import Home from './pages/HomePage/HomePage';
 //import BotPage from './pages/BotPage/BotPage';
@@ -16,6 +17,7 @@ const ForumPage = lazy(() => import('./pages/ForumPage'));
 //import UserProfile from './pages/UserProfile';
 //import ProfessionalSupportPage from './pages/ProfessionalSupportPage';
 //import ForumPage from './pages/ForumPage';
+//import PositiveQuestionsPage from './pages/PositiveQuestionsPage';
 
 import styles from './styles/App.module.css';
 // import PositiveContentPage from './pages/PositiveContentPage/PositiveContentPage';
@@ -23,9 +25,6 @@ import projectLogo from './assets/Safe-Mirror-logo.png'
 import ProtectedRoute from "./ProtectedRoute";
 import backgroundImage from './assets/background-image.jpg';
 import Loading from "./components/Loading.jsx";
-
-import PositiveQuestionsPage from './pages/PositiveQuestionsPage';
-
 
 function App() {
   return (
@@ -49,54 +48,25 @@ function App() {
           <Link to="/Positive-questions" className={styles.appLink}>Positive-questions</Link>
         </nav>
       </header>
+      <Suspense fallback={<Loading />}>
       <main className={styles.main}>
        <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/chatbot" element={<BotPage />} />          
-            <Route path="/profile" element={<UserProfile />} />
-            <Route path="/" element={<LoginPage />} />
-            <Route path="/signup" element={<SignupPage />} />
-            <Route path="/forum" element={<ForumPage />} />
-            <Route path="/professional-support" element={< ProfessionalSupportPage />} />
-            <Route path="/Positive-questions" element={< PositiveQuestionsPage />} />
-          </Routes>
-      <div className={styles.app}
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <header className={styles.appHeader}>
-          <img src={projectLogo} alt="Logo" className={styles.appLogo} />
-          <nav className={styles.appNav}>
-            <Link to="/home" className={styles.appLink}>Home</Link>
-            <Link to="/" className={styles.appLink}>Login</Link>
-            <Link to="/signup" className={styles.appLink}>Sign Up</Link>
-            <Link to="/chatbot" className={styles.appLink}>Chat Bot</Link>
-            <Link to="/profile" className={styles.appLink}>Profile</Link>
-            <Link to="/professional-support" className={styles.appLink}>Professional-Support</Link>
-            <Link to="/forum" className={styles.appLink}>Forum</Link>
-          </nav>
-        </header>
-        <Suspense fallback={<Loading />}>
-        <main className={styles.main}>
-            <Routes>
-              <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-              <Route path="/chatbot" element={<ProtectedRoute><BotPage /></ProtectedRoute>} />          
-              <Route path="/profile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
-              <Route path="/" element={<LoginPage />} />
-              <Route path="/signup" element={<SignupPage />} />
-              <Route path="/forum" element={<ProtectedRoute><ForumPage /></ProtectedRoute>} />
-              <Route path="/professional-support" element={<ProtectedRoute>< ProfessionalSupportPage /></ProtectedRoute>} />
-            </Routes>
-        </main>
-        </Suspense>
-        <footer className={styles.footer}>
-          <p>&copy;SafeMirror 2025</p>
-        </footer>
-      </div>
-    );
-  }
+          <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
+          <Route path="/chatbot" element={<ProtectedRoute><BotPage /></ProtectedRoute>} />          
+          <Route path="/profile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/forum" element={<ProtectedRoute><ForumPage /></ProtectedRoute>} />
+          <Route path="/professional-support" element={<ProtectedRoute>< ProfessionalSupportPage /></ProtectedRoute>} />
+          <Route path="/Positive-questions" element={<ProtectedRoute>< PositiveQuestionsPage /></ProtectedRoute>} />
+        </Routes>
+      </main>
+      </Suspense>
+      <footer className={styles.footer}>
+        <p>&copy;SafeMirror 2025</p>
+      </footer>
+    </div>
+  );
+}
 
 export default App;
