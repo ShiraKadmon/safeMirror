@@ -6,7 +6,9 @@ dotenv.config();
 const ultramsgUrl = `https://api.ultramsg.com/instance${process.env.ULTRAMSG_INSTANCE_ID}/messages/chat`;
 const token = process.env.ULTRAMSG_TOKEN;
 
-export const sendNotification = async (phoneNumber, message) => {
+
+// send a POST call  to the UltraMsg API
+export const sendPhoneNotification = async (phoneNumber, message) => {
   try {  
     const data = new URLSearchParams();
     data.append('token', token);
@@ -27,3 +29,5 @@ export const sendNotification = async (phoneNumber, message) => {
     return 'הייתה בעיה בשליחת ההודעה. נסה שוב מאוחר יותר.';
   }
 };
+
+
