@@ -1,40 +1,22 @@
-import styles from "./DailyTip.module.css";
-import { useEffect, useState } from "react";
+import PropTypes from 'prop-types';
+import styles from './DailyTip.module.css';
 
-
-const DailyTip = () => {
-  // const tip = "Always use strong and unique passwords for your online accounts!";
-  const [tip, setTip] = useState("");
-  const ageGroup = "17-18";
-
-  useEffect(() => {
-      const fetchTip = async () => {
-          try {
-              const response = await fetch(`http://localhost:5000/awarenessNotification/awarenessNotification?ageGroup=${ageGroup}`); // Adjust the URL as needed
-              if (response.ok) {
-                  const data = await response.json();
-                  setTip(data);
-              } else {
-                  console.error("Failed to fetch the tip:", response.statusText);
-              }
-          } catch (error) {
-              console.error("Error fetching the tip:", error);
-          }
-      };
-
-      fetchTip();
-  }, []);
-
+const DailyTip = ({ initialMessage }) => {
   return (
     <div className={styles.container}>
-    <div className={styles.header}>
-      <h1 className={styles.headertext}>Positive Content</h1>
+      <div className={styles.header}>
+        <h1 className={styles.headertext}>Positive Content</h1>
+      </div>
+      <div className={styles.content}>
+        <p>{initialMessage}</p>
+      </div>
     </div>
-    <div className={styles.content}>
-      <p>{tip || "Loading tip..."}</p>
-    </div>
-  </div>
   );
+};
+
+// Define the propTypes for DailyTip
+DailyTip.propTypes = {
+  initialMessage: PropTypes.string.isRequired, // Ensure initialMessage is a required string
 };
 
 export default DailyTip;
