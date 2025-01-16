@@ -7,7 +7,7 @@ import projectLogo from './assets/Safe-Mirror-logo.png'
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import UserProfile from './pages/UserProfile';
-import ProtectedRoute from "./ProtectedRoute";
+// import ProtectedRoute from "./ProtectedRoute";
 import backgroundImage from './assets/background-image.jpg';
 import ProfessionalSupportPage from './pages/ProfessionalSupportPage';import ForumPage from './pages/ForumPage';
 
