@@ -20,7 +20,7 @@ const ForumPage = lazy(() => import('./pages/ForumPage'));
 import styles from './styles/App.module.css';
 // import PositiveContentPage from './pages/PositiveContentPage/PositiveContentPage';
 import projectLogo from './assets/Safe-Mirror-logo.png'
-//import ProtectedRoute from "./ProtectedRoute";
+import ProtectedRoute from "./ProtectedRoute";
 import backgroundImage from './assets/background-image.jpg';
 import Loading from "./components/Loading.jsx";
 

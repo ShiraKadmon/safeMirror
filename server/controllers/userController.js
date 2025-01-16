@@ -113,7 +113,7 @@ export const loginUser = async (req, res) =>{
 };
 
 export const updateUserDetails = async (req, res) => {
-  const { email , birthDate, phoneNumber } = req.body;
+  const { email , name, birthDate, phoneNumber } = req.body;
 
   if (!email) {
       return res.status(400).json({ error: "Email is required for updates." });
@@ -122,7 +122,7 @@ export const updateUserDetails = async (req, res) => {
   try {
       const user = await User.findOneAndUpdate(
           { email }, // Filter by email
-          { birthDate, phoneNumber }, // Update these fields
+          { birthDate,name, phoneNumber }, // Update these fields
           { new: true } // Return the updated document
       );
 
@@ -134,23 +134,5 @@ export const updateUserDetails = async (req, res) => {
   } catch (error) {
       console.error("Error updating user:", error);
       res.status(500).json({ error: "Internal server error." });
-  }
-};
-
-export const getNameByEmail = async (req, res) => {
-  const { email } = req.query; // Get the email from query parameters
-
-  try {
-      // Find the user by email
-      const user = await User.findOne({ email });
-
-      if (user) {
-          res.status(200).json({ name: user.name }); // Respond with the user's name
-      } else {
-          res.status(404).json({ error: 'User not found' }); // If no user is found
-      }
-  } catch (error) {
-      console.error('Error fetching user name:', error);
-      res.status(500).json({ error: 'Internal server error' });
   }
 };
