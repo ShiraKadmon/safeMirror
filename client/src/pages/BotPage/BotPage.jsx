@@ -1,21 +1,54 @@
 import { useState, useEffect } from 'react';
 import './BotPage.css';
 import chatbotIcon from "/src/assets/chatbot-icon.jpg";
+import { useAuth } from '../../AuthProvider';
+
 
 const BotPage = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+  const { email } = useAuth(); // Access global user data
   const [loading, setLoading] = useState(false);
   
-  const userName= "אילה"; //We will subtract the name from the data base
+  const [userName , setUserName]= useState('') ; //We will subtract the name from the data base
   const userAge = 15; //We will subtract the age from the data base 
 
   useEffect(() => {
+    const getName = async () => {
+        const userName = await fetchUserName(email);
+        setUserName(userName || 'Guest');
+    };
+
+    getName();
+}, [email]);
+
+const fetchUserName = async (email) => {
+  try {
+      const response = await fetch(`http://localhost:5000/user/name?email=${email}`);
+      
+      if (response.ok) {
+          const data = await response.json();
+          console.log('User name:', data.name);
+          return data.name; // Return the name
+      } else {
+          console.error('Failed to fetch user name:', response.status);
+          return null;
+      }
+  } catch (error) {
+      console.error('Error fetching user name:', error);
+      return null;
+  }
+};
+
+  useEffect(() => {
     //Initial message of the bot
-    setMessages([
-      { text: `שלום ${userName}, מה שלומך? איך אני יכולה לעזור לך?`, sender: 'bot' },
-    ]);
-  }, []);
+    if (userName) {
+      // Initial message of the bot
+      setMessages([
+          { text: `שלום ${userName}, מה שלומך? איך אני יכולה לעזור לך?`, sender: 'bot' },
+      ]);
+  }
+  }, [userName]);
 
   const handleSend = async () => {
     if (input.trim()) {
