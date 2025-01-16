@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import { sendPhoneNotification } from '../services/phonNotificationService.js';
 import notification from '../models/notification.js';
 
-
+// signup
 export const createUser = async (req, res) =>{
     const { name, email, birthDate, password, phoneNumber } = req.body;
     try {
@@ -47,6 +47,7 @@ export const createUser = async (req, res) =>{
     }
 }
 
+// login
 export const loginUser = async (req, res) =>{
     const { email, password } = req.body;
     if (!email || !password) {
