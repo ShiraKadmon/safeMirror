@@ -36,8 +36,9 @@ function SignupPage() {
                 const result = await response.json(); // Parse the JSON response
                 console.log('Signup successful:', result);
             } else {
+                const errorData = await response.json();
                 console.error('Signup failed:', response.status, response.statusText);
-                alert('Signup failed. Please try again.');
+                alert(errorData.error); // הצגת ההודעה למשתמש
             }
         } catch (error) {
             console.error('Error occurred during signup:', error);
