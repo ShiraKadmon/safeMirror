@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 import chatRoutes from './routes/chatRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import forumRoutes from './routes/forumRoutes.js';
-
+import positiveQuestionsRoutes from './routes/positiveQuestionsRoute.js';
 
 dotenv.config();
 
@@ -29,6 +29,7 @@ mongoose.connect(process.env.MONGODB_URL, {
 throw err; });
 
 app.use('/chat', chatRoutes);
+app.use('/positive-questions', positiveQuestionsRoutes);
 app.use('/user', userRoutes);
 app.use('/forum', forumRoutes);
 

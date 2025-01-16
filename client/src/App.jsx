@@ -9,7 +9,9 @@ import SignupPage from './pages/SignupPage';
 import UserProfile from './pages/UserProfile';
 import ProtectedRoute from "./ProtectedRoute";
 import backgroundImage from './assets/background-image.jpg';
-import ProfessionalSupportPage from './pages/ProfessionalSupportPage';import ForumPage from './pages/ForumPage';
+import ProfessionalSupportPage from './pages/ProfessionalSupportPage';
+import ForumPage from './pages/ForumPage';
+import PositiveQuestionsPage from './pages/PositiveQuestionsPage';
 
 
 function App() {
@@ -31,6 +33,7 @@ function App() {
           <Link to="/profile" className={styles.appLink}>Profile</Link>
           <Link to="/professional-support" className={styles.appLink}>Professional-Support</Link>
           <Link to="/forum" className={styles.appLink}>Forum</Link>
+          <Link to="/Positive-questions" className={styles.appLink}>Positive-questions</Link>
         </nav>
       </header>
       <main className={styles.main}>
@@ -42,6 +45,7 @@ function App() {
             <Route path="/signup" element={<SignupPage />} />
             <Route path="/forum" element={<ForumPage />} />
             <Route path="/professional-support" element={< ProfessionalSupportPage />} />
+            <Route path="/Positive-questions" element={< PositiveQuestionsPage />} />
           </Routes>
         </main>
         <footer className={styles.footer}>
