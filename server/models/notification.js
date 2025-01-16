@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const awarenessNotificationSchema = new mongoose.Schema({
+const notificationSchema = new mongoose.Schema({
     message: {
         type: String,
         required: true
@@ -20,6 +20,6 @@ const awarenessNotificationSchema = new mongoose.Schema({
     }
 });
 
-const awarenessNotification = mongoose.model('awarenessNotification', awarenessNotificationSchema);
+const notification = mongoose.model('Notfication', notificationSchema, 'Awareness-Message');
 
-export default awarenessNotification;
+export default notification;
