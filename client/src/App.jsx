@@ -8,7 +8,7 @@ const SignupPage = lazy(() => import('./pages/SignupPage'));
 const UserProfile = lazy(() => import('./pages/UserProfile'));
 const ProfessionalSupportPage = lazy(() => import('./pages/ProfessionalSupportPage'));
 const ForumPage = lazy(() => import('./pages/ForumPage'));
-const PositiveQuestionsPage = lazy(() => import('./pages/PositiveQuestionsPage'));
+const QuizPage = lazy(() => import('./pages/QuizPage.jsx'));
 
 //import Home from './pages/HomePage/HomePage';
 //import BotPage from './pages/BotPage/BotPage';
@@ -45,7 +45,7 @@ function App() {
           <Link to="/profile" className={styles.appLink}>Profile</Link>
           <Link to="/professional-support" className={styles.appLink}>Professional-Support</Link>
           <Link to="/forum" className={styles.appLink}>Forum</Link>
-          <Link to="/Positive-questions" className={styles.appLink}>Positive-questions</Link>
+          <Link to="/quiz" className={styles.appLink}>Quiz</Link>
         </nav>
       </header>
       <Suspense fallback={<Loading />}>
@@ -58,7 +58,7 @@ function App() {
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/forum" element={<ProtectedRoute><ForumPage /></ProtectedRoute>} />
           <Route path="/professional-support" element={<ProtectedRoute>< ProfessionalSupportPage /></ProtectedRoute>} />
-          <Route path="/Positive-questions" element={<ProtectedRoute>< PositiveQuestionsPage /></ProtectedRoute>} />
+          <Route path="/quiz" element={<ProtectedRoute>< QuizPage /></ProtectedRoute>} />
         </Routes>
       </main>
       </Suspense>

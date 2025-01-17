@@ -1,41 +1,41 @@
-import express from 'express';
-import cors from 'cors';
-import dotenv from 'dotenv';
-import mongoose from 'mongoose';
-import chatRoutes from './routes/chatRoutes.js';
-import userRoutes from './routes/userRoutes.js';
-import forumRoutes from './routes/forumRoutes.js';
-import positiveQuestionsRoutes from './routes/positiveQuestionsRoute.js';
+  import express from 'express';
+  import cors from 'cors';
+  import dotenv from 'dotenv';
+  import mongoose from 'mongoose';
+  import chatRoutes from './routes/chatRoutes.js';
+  import userRoutes from './routes/userRoutes.js';
+  import forumRoutes from './routes/forumRoutes.js';
+  import quizRoutes from './routes/quizRoutes.js';
 
-dotenv.config();
+  dotenv.config();
 
-const app = express();
+  const app = express();
 
-// Enable CORS for requests from 'http://localhost:3000'
-app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:3000',
-}));
+  // Enable CORS for requests from 'http://localhost:3000'
+  app.use(cors({
+    origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  }));
 
-app.use(express.json());
+  app.use(express.json());
 
-// connect to mongo
-mongoose.connect(process.env.MONGODB_URL, {
-})
-.then(() => {console.log('Connected to MongoDB')
-  console.log("✅ connect to the database :", mongoose.connection.name);
-  return null;
-})
-.catch(err => { console.error('Error connecting to MongoDB:', err)
-throw err; });
+  // connect to mongo
+  mongoose.connect(process.env.MONGODB_URL, {
+  })
+  .then(() => {console.log('Connected to MongoDB')
+    console.log("✅ connect to the database :", mongoose.connection.name);
+    return null;
+  })
+  .catch(err => { console.error('Error connecting to MongoDB:', err)
+  throw err; });
 
-app.use('/chat', chatRoutes);
-app.use('/positive-questions', positiveQuestionsRoutes);
-app.use('/user', userRoutes);
-app.use('/forum', forumRoutes);
+  app.use('/chat', chatRoutes);
+  app.use('/quiz', quizRoutes);
+  app.use('/user', userRoutes);
+  app.use('/forum', forumRoutes);
 
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+  const PORT = 5000;
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
 
 
