@@ -10,6 +10,7 @@ const QuizPage = () => {
   const [chatHistory, setChatHistory] = useState([]);
   const userAge = 15; //We will subtract the age from the data base 
 
+  // Function to handle asking a new question
   const handleAskQuestion = async () => {
     setLoading(true);
     setUserAnswer('');
@@ -26,6 +27,7 @@ const QuizPage = () => {
           }
         ],
           userAge,
+          previousQuestions: chatHistory.map(chat => chat.question),
         }),
       });
 
@@ -34,7 +36,12 @@ const QuizPage = () => {
       }
 
       const data = await response.json();
-      setQuestion(data.question || "לא התקבלה שאלה מהשרת.");
+      // Ensure the question is not already in chat history
+      if (data.question && !chatHistory.find(chat => chat.question === data.question)) { 
+      setQuestion(data.question);
+    } else {
+      setQuestion('לא התקבלה שאלה חדשה מהשרת.');
+    }
     } catch (error) {
       console.error('Error fetching bot response:', error);
       alert('משהו השתבש, נסי שוב מאוחר יותר.');
@@ -43,8 +50,9 @@ const QuizPage = () => {
     }
   };
 
+  // Function to handle user answer submission
   const handleUserAnswer = async () => {
-    if (!userAnswer) return;
+    if (!userAnswer) return;// Prevent empty answers
     setLoading(true);
     try {
       const response = await fetch(`${import.meta.env.VITE_SERVER_API_URL}quiz/response`, {
@@ -88,15 +96,14 @@ const QuizPage = () => {
 
   return (
     <div className={styles.quizPage}>
-        <div>
-            <h2>שעשועון הבוטית</h2>
-            <div className={styles.quizHeaderIconContainer}>
-                <img src={QuizIcon} alt="Quiz Icon" className={styles.quizHeaderIcon} />
-            </div>
+        <div className={styles.quizHeader}>
+          <div className={styles.quizHeaderIconContainer}>
+            <img src={QuizIcon} alt="Quiz Icon" className={styles.quizHeaderIcon} />
+          </div>
+          <h2>שעשועון הבוטית</h2>
         </div>
-      <div className={styles.questionContainer}>
       {question ? (
-        <>
+        <div className={styles.questionContainer}>
         <div className={styles.question}>שאלה: {question}</div>
         <input
           type="text"
@@ -111,7 +118,7 @@ const QuizPage = () => {
         <button onClick={handleUserAnswer} disabled={loading || !userAnswer}>
           שלחי תשובה
         </button>
-      </>
+      </div>
     ) : (
       <button onClick={handleAskQuestion} disabled={loading}>
         שאלי אותי שאלה
@@ -119,9 +126,10 @@ const QuizPage = () => {
     )}
 
         {loading && <div className={styles.loading}>הבוטית מקלידה...</div>}
-      </div>
+
+        {chatHistory.length > 0 && (
       <div className={styles.chatHistory}>
-        {chatHistory.map((chat, index) => (
+        {chatHistory.slice().map((chat, index) => (
           <div key={index} className={styles.chatBlock}>
             <div>❓ שאלה: {chat.question}</div>
             <div>👩 תשובה שלך: {chat.userAnswer}</div>
@@ -129,7 +137,8 @@ const QuizPage = () => {
           </div>
         ))}
       </div>
-    </div>
+    )}
+  </div>  
   );
 };
 

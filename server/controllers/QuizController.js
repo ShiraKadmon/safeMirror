@@ -7,20 +7,30 @@ const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 export const getPositiveQuestion = async (req, res) => {
-  const { userAge } = req.body;
+  const { userAge, previousQuestions  } = req.body;
 
+  // Validate userAge and previousQuestions parameters
   if (!userAge || typeof userAge !== 'number') {
     console.error('Invalid age:', userAge);
     return res.status(400).json({ error: 'גיל המשתמשת חסר או לא תקין.' });
   }
 
+  if (!previousQuestions || !Array.isArray(previousQuestions)) {
+    console.error('Invalid previousQuestions:', previousQuestions);
+    return res.status(400).json({ error: 'היסטוריית השאלות חסרה או לא תקינה.' });
+  }
+
   try {
+    // Create the prompt for the Gemini API based on userAge and previousQuestions
     const prompt = `
-      את בוטית ידידותית שמדברת עם נערות בגילאי ${userAge}.
-      שאלי שאלה חיובית ומעצימה אחת בלבד שתגרום לה להרגיש טוב עם עצמה, לדוגמה: "מה את אוהבת בעצמך?" או "איזה כשרון היית רוצה לפתח?".
-      הגבל את התשובה ל-300 תווים בלבד.
+    את בוטית ידידותית שמדברת עם נערות בגילאי ${userAge}.
+    שאלי שאלה חיובית ומעצימה אחת בלבד שתגרום לה להרגיש טוב עם עצמה, לדוגמה: "מה את אוהבת בעצמך?" או "איזה כשרון היית רוצה לפתח?".
+    אל תחזרי על שאלה ששאלת בעבר או על שאלה דומה. נסי להיות יצירתית ומגוונת בניסוח.
+    אלו השאלות שכבר שאלת: ${previousQuestions.join(', ')}.
+    הגבילי את התשובה ל-300 תווים בלבד.
     `;
 
+    // Call the Gemini API to generate the question
     const response = await axios.post(
         `${GEMINI_API_URL}?key=${GEMINI_API_KEY}`,
         {
@@ -38,11 +48,8 @@ export const getPositiveQuestion = async (req, res) => {
           },
         }
       );
-  
 
-        console.log('Gemini API full response:', JSON.stringify(response.data, null, 2));
-        console.log('Gemini API response:', response.data);
-
+      // Extract the question from the response
         const botQuestion = response.data?.candidates?.[0]?.content?.parts?.[0]?.text || 'לא הצלחתי להפיק שאלה.';
         res.json({ question: botQuestion });
       } catch (error) {
@@ -59,6 +66,7 @@ export const getEmpoweringResponse = async (req, res) => {
     }
   
     try {
+      // Create the prompt for the Gemini API to generate an empowering response
       const prompt = `
         את בוטית ידידותית שמדברת עם נערות בגיל ${userAge}.
         השאלה ששאלת: "${previousQuestion}".
@@ -66,6 +74,7 @@ export const getEmpoweringResponse = async (req, res) => {
         תני תשובה מעצימה וממוקדת שתגרום למשתמשת להרגיש טוב עם עצמה. הגבל את התשובה ל-300 תווים בלבד.
       `;
   
+       // Call the Gemini API to generate the empowering response
       const response = await axios.post(
           `${GEMINI_API_URL}?key=${GEMINI_API_KEY}`,
           {
@@ -84,10 +93,8 @@ export const getEmpoweringResponse = async (req, res) => {
           }
         );
   
-          console.log('Gemini API full response:', JSON.stringify(response.data, null, 2));
-          console.log('Gemini API response:', response.data);
-  
-          const empoweringResponse = response.data?.candidates?.[0]?.content?.parts?.[0]?.text || 'לא הצלחתי להפיק תשובה.';
+    // Extract the empowering response from the API response
+    const empoweringResponse = response.data?.candidates?.[0]?.content?.parts?.[0]?.text || 'לא הצלחתי להפיק תשובה.';
     res.json({ response: empoweringResponse });
   } catch (error) {
     console.error('Error getting response from Gemini API:', error.response?.data || error.message);
