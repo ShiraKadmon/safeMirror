@@ -39,8 +39,7 @@
 // };
 
 // export default Home;
-import { useNavigate, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../AuthProvider"; // Import AuthProvider for authentication
 import styles from "./Home.module.css";
 import botButton from "../../assets/Safe-Mirror-Button.png";
