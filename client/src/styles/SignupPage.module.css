@@ -79,3 +79,10 @@
 .link:hover {
     text-decoration: underline;
 }
+
+
+.errorText {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
