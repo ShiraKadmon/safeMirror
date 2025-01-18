@@ -8,6 +8,7 @@ const SignupPage = lazy(() => import('./pages/SignupPage'));
 const UserProfile = lazy(() => import('./pages/UserProfile'));
 const ProfessionalSupportPage = lazy(() => import('./pages/ProfessionalSupportPage'));
 const ForumPage = lazy(() => import('./pages/ForumPage'));
+const QuizPage = lazy(() => import('./pages/QuizPage.jsx'));
 
 //import Home from './pages/HomePage/HomePage';
 //import BotPage from './pages/BotPage/BotPage';
@@ -16,6 +17,7 @@ const ForumPage = lazy(() => import('./pages/ForumPage'));
 //import UserProfile from './pages/UserProfile';
 //import ProfessionalSupportPage from './pages/ProfessionalSupportPage';
 //import ForumPage from './pages/ForumPage';
+//import PositiveQuestionsPage from './pages/PositiveQuestionsPage';
 
 import styles from './styles/App.module.css';
 // import PositiveContentPage from './pages/PositiveContentPage/PositiveContentPage';
