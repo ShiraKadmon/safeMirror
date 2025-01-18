@@ -10,9 +10,10 @@ export const AuthProvider = ({ children }) => {
     const [email, setEmailg] = useState(null); // Add user state
     const [name, setName] = useState(null); // Add user state
     const [age, setAge] = useState(null); // Add user state
+    const [positiveContent, setPositiveContent] = useState(null); // Add positive content state
 
     return (
-        <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, email, setEmailg ,name , setName,age, setAge }}>
+        <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, email, setEmailg ,name , setName,age, setAge ,positiveContent, setPositiveContent }}>
             {children}
         </AuthContext.Provider>
     );

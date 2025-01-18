@@ -25,48 +25,56 @@ import projectLogo from './assets/Safe-Mirror-logo.png'
 import ProtectedRoute from "./ProtectedRoute";
 import backgroundImage from './assets/background-image.jpg';
 import Loading from "./components/Loading.jsx";
-
+import { useAuth } from "./AuthProvider";
 function App() {
+  const { isLoggedIn } = useAuth();
   return (
-    <div className={styles.app}
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      <header className={styles.appHeader}>
-        <img src={projectLogo} alt="Logo" className={styles.appLogo} />
-        <nav className={styles.appNav}>
-          <Link to="/home" className={styles.appLink}>Home</Link>
-          <Link to="/" className={styles.appLink}>Login</Link>
-          <Link to="/signup" className={styles.appLink}>Sign Up</Link>
-          <Link to="/chatbot" className={styles.appLink}>Chat Bot</Link>
-          <Link to="/profile" className={styles.appLink}>Profile</Link>
-          <Link to="/professional-support" className={styles.appLink}>Professional-Support</Link>
-          <Link to="/forum" className={styles.appLink}>Forum</Link>
-          <Link to="/quiz" className={styles.appLink}>Quiz</Link>
-        </nav>
-      </header>
-      <Suspense fallback={<Loading />}>
-      <main className={styles.main}>
-       <Routes>
-          <Route path="/home" element={<ProtectedRoute><Home /></ProtectedRoute>} />
-          <Route path="/chatbot" element={<ProtectedRoute><BotPage /></ProtectedRoute>} />          
-          <Route path="/profile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
-          <Route path="/" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="/forum" element={<ProtectedRoute><ForumPage /></ProtectedRoute>} />
-          <Route path="/professional-support" element={<ProtectedRoute>< ProfessionalSupportPage /></ProtectedRoute>} />
-          <Route path="/quiz" element={<ProtectedRoute>< QuizPage /></ProtectedRoute>} />
-        </Routes>
-      </main>
-      </Suspense>
-      <footer className={styles.footer}>
-        <p>&copy;SafeMirror 2025</p>
-      </footer>
-    </div>
-  );
-}
+      <div className={styles.app}
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <header className={styles.appHeader}>
+          <img src={projectLogo} alt="Logo" className={styles.appLogo} />
+          <nav className={styles.appNav}>
+            <Link to="/home" className={styles.appLink}>Home</Link>
+            <Link to="/" className={styles.appLink}>Login</Link>
+            <Link to="/signup" className={styles.appLink}>Sign Up</Link>
+            <Link
+                to={isLoggedIn ? "/chatbot" : "#"}
+                className={styles.appLink}
+            >
+                Chat Bot
+                {!isLoggedIn && <span>🔒</span>}
+            </Link>            
+            <Link to={isLoggedIn ? "/profile" : "#"} className={styles.appLink}>Profile
+            {!isLoggedIn && <span>🔒</span>}</Link>
+            <Link to="/professional-support" className={styles.appLink}>Professional-Support</Link>
+            <Link to={isLoggedIn ? "/forum" : "#"} className={styles.appLink}>Forum
+            {!isLoggedIn && <span>🔒</span>}</Link>
+          </nav>
+        </header>
+        <Suspense fallback={<Loading />}>
+        <main className={styles.main}>
+            <Routes>
+              <Route path="/home" element={<Home />} />
+              <Route path="/chatbot" element={<ProtectedRoute><BotPage /></ProtectedRoute>} />          
+              <Route path="/profile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
+              <Route path="/" element={<LoginPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignupPage />} />
+              <Route path="/forum" element={<ProtectedRoute><ForumPage /></ProtectedRoute>} />
+              <Route path="/professional-support" element={< ProfessionalSupportPage />} />
+            </Routes>
+        </main>
+        </Suspense>
+        <footer className={styles.footer}>
+          <p>&copy;SafeMirror 2025</p>
+        </footer>
+      </div>
+    );
+  }
 
 export default App;
