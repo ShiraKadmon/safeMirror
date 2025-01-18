@@ -92,7 +92,7 @@ const BotPage = () => {
         <div className="chatbot-header-icon-container">
           <img src={chatbotIcon} alt="ChatBot Icon" className="chatbot-header-icon" />
         </div>
-        <h2>צ'ט בוטית</h2>
+        <h2>צ&apos;ט בוטית</h2>
       </div>
       <div className="chatbot-messages">
         {messages.map((msg, index) => (
