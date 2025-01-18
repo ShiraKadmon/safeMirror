@@ -1,6 +1,14 @@
-.container {
+.columnContainer {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rowContainer {
     text-align: center;
-    padding: 20px;
+    display: flex;
+    flex-direction: row;
   }
   
   .headline {

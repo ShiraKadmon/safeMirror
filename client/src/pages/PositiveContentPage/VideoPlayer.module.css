@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    width: 400px;
+    margin: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.videoPlayer {
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    border-radius: 10px;
+    outline: none;
+}
+
+.title {
+    font-size: 22px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    color: #53474F;
+  }
