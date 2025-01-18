@@ -10,6 +10,7 @@ const ProfessionalSupportPage = lazy(() => import('./pages/ProfessionalSupportPa
 const ForumPage = lazy(() => import('./pages/ForumPage'));
 const QuizPage = lazy(() => import('./pages/QuizPage.jsx'));
 const AboutPage = lazy(() => import('./pages/AboutPage.jsx'));
+const PositiveContentPage = lazy(() => import('./pages/PositiveContentPage/PositiveContentPage'));
 
 //import Home from './pages/HomePage/HomePage';
 //import BotPage from './pages/BotPage/BotPage';
@@ -56,6 +57,7 @@ function App() {
             {isLoggedIn && (<Link to={isLoggedIn ? "/profile" : "#"} className={styles.appLink}>פרופיל
             </Link>)}
             <Link to="/professional-support" className={styles.appLink}>תמיכה מקצועית</Link>
+            <Link to="/positive-content" className={styles.appLink}>תוכן חיובי</Link>
             <Link to={isLoggedIn ? "/forum" : "#"} className={styles.appLink}>פורום
             {!isLoggedIn && <span>🔒</span>}</Link>
 
@@ -94,6 +96,7 @@ function App() {
               <Route path="/forum" element={<ForumPage />} />
               <Route path="/professional-support" element={< ProfessionalSupportPage />} />
               <Route path="/about" element={< AboutPage />} />
+              <Route path="/positive-content" element={<PositiveContentPage />} />
             </Routes>
         </main>
         </Suspense>

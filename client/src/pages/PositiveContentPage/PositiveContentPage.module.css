@@ -1,0 +1,19 @@
+.columnContainer {
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.rowContainer {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .headline {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #53474F;
+  }
+  
