@@ -22,7 +22,8 @@ const AboutPage = lazy(() => import('./pages/AboutPage.jsx'));
 
 import styles from './styles/App.module.css';
 // import PositiveContentPage from './pages/PositiveContentPage/PositiveContentPage';
-import projectLogo from './assets/Safe-Mirror-logo.png'
+import projectLogo from './assets/Safe-Mirror-logo.png';
+import homeIcon from './assets/home-icon.png';
 import ProtectedRoute from "./ProtectedRoute";
 import backgroundImage from './assets/background-image.jpg';
 import Loading from "./components/Loading.jsx";
@@ -41,7 +42,9 @@ function App() {
         <header className={styles.appHeader}>
           <img src={projectLogo} alt="Logo" className={styles.appLogo} />
           <nav className={styles.appNav}>
-            <Link to="/home" className={styles.appLink}>Home</Link>
+          <Link to="/home" className={styles.appLink}>
+            <img src={homeIcon} alt="Home" className={styles.icon} />
+          </Link>
             <Link to="/" className={styles.appLink}>Login</Link>
             <Link to="/signup" className={styles.appLink}>Sign Up</Link>
             <Link

@@ -11,6 +11,7 @@ const BotPage = () => {
   const [loading, setLoading] = useState(false);
   
   const {name} = useAuth(); //We will subtract the name from the data base
+  //const {age} = useAuth(); //We will subtract the age from the data base 
   const userAge = 15; //We will subtract the age from the data base 
 
 //   useEffect(() => {

@@ -31,6 +31,13 @@
   transition: color 0.3s ease, transform 0.2s ease;
 }
 
+.icon {
+  filter: brightness(0) invert(1);
+  width: 26px;
+  height: 26px;
+  vertical-align: middle;
+}
+
 .appLink:hover {
   text-decoration: underline;
   color: #ffd1dc;
