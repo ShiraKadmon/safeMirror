@@ -5,8 +5,8 @@ const ProfessionalSupportPage = () => {
   return (
     <div className={styles.professionalListContainer}>
       <div className={styles.professionalListHeader}>
+      <div className={styles.chatbotHeaderIcon}></div>
         <h2>אנשי מקצוע להתייעצות</h2>
-        <div className={styles.chatbotHeaderIcon}></div>
       </div>
       <div className={styles.professionalList}>
         <div className={styles.professionalItem}>

@@ -11,6 +11,7 @@ const BotPage = () => {
   const [loading, setLoading] = useState(false);
   
   const {name} = useAuth(); //We will subtract the name from the data base
+  //const {age} = useAuth(); //We will subtract the age from the data base 
   const userAge = 15; //We will subtract the age from the data base 
 
 //   useEffect(() => {
@@ -88,10 +89,10 @@ const BotPage = () => {
   return (
     <div className="chatbot-container">
       <div className="chatbot-header">
-        <h2>ChatBot</h2>
         <div className="chatbot-header-icon-container">
           <img src={chatbotIcon} alt="ChatBot Icon" className="chatbot-header-icon" />
         </div>
+        <h2>צ&apos;ט בוטית</h2>      
       </div>
       <div className="chatbot-messages">
         {messages.map((msg, index) => (
@@ -132,7 +133,7 @@ const BotPage = () => {
           placeholder="תקלידי הודעה... "
         />
         <button className="chatbot-send-button" onClick={handleSend} disabled={loading}>
-          Send
+          שלחי
         </button>
       </div>
     </div>
