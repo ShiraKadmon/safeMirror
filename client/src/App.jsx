@@ -61,7 +61,7 @@ function App() {
                 to={isLoggedIn ? "/chatbot" : "#"}
                 className={styles.appLink}
             >
-                צ'ט בוטית
+                צ&apos;ט בוטית
                 {!isLoggedIn && <span>🔒</span>}
             </Link>
             <Link to="/signup" className={styles.appLink}>הרשמה</Link>
