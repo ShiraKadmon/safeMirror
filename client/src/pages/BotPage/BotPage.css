@@ -30,6 +30,7 @@
     height: 80px;
     border-radius: 50%;
     overflow: hidden;
+    margin-left: 10px;
   }
   
   .chatbot-header-icon {
@@ -38,6 +39,7 @@
     object-fit: cover;
     object-position: 24% 10%;
     transform: scale(1.3);
+    margin-left: 20px;
   }
 
   .chatbot-messages {

@@ -10,10 +10,10 @@ const ForumPage = () => {
   return (
     <div className="forum-container">
       <div className="forum-header">
-        <h2>Forum</h2>
         <div className="forum-header-icon-container">
             <img src={forumIcon} alt="Forum Icon" className="forum-header-icon" />
         </div>
+        <h2>פורום אנונימי</h2>
       </div>
       
       <div className="forum-posts">

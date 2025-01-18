@@ -42,31 +42,33 @@ function App() {
         <header className={styles.appHeader}>
           <img src={projectLogo} alt="Logo" className={styles.appLogo} />
           <nav className={styles.appNav}>
-          <Link to="/home" className={styles.appLink}>
-            <img src={homeIcon} alt="Home" className={styles.icon} />
-          </Link>
-            <Link to="/" className={styles.appLink}>Login</Link>
-            <Link to="/signup" className={styles.appLink}>Sign Up</Link>
-            <Link
-                to={isLoggedIn ? "/chatbot" : "#"}
-                className={styles.appLink}
-            >
-                Chat Bot
-                {!isLoggedIn && <span>🔒</span>}
-            </Link>
+          <Link to="/about" className={styles.appLink}>על הפרוייקט</Link>
+                    
+            <Link to={isLoggedIn ? "/profile" : "#"} className={styles.appLink}>פרופיל
+            {!isLoggedIn && <span>🔒</span>}</Link>
+            <Link to="/professional-support" className={styles.appLink}>תמיכה מקצועית</Link>
+            <Link to={isLoggedIn ? "/forum" : "#"} className={styles.appLink}>פורום
+            {!isLoggedIn && <span>🔒</span>}</Link>
+
             <Link
                 to={isLoggedIn ? "/quiz" : "#"}
                 className={styles.appLink}
             >
-                Quiz
+                שעשועון
                 {!isLoggedIn && <span>🔒</span>}
-            </Link>            
-            <Link to={isLoggedIn ? "/profile" : "#"} className={styles.appLink}>Profile
-            {!isLoggedIn && <span>🔒</span>}</Link>
-            <Link to="/professional-support" className={styles.appLink}>Professional-Support</Link>
-            <Link to={isLoggedIn ? "/forum" : "#"} className={styles.appLink}>Forum
-            {!isLoggedIn && <span>🔒</span>}</Link>
-            <Link to="/about" className={styles.appLink}>About</Link>
+            </Link>   
+            <Link
+                to={isLoggedIn ? "/chatbot" : "#"}
+                className={styles.appLink}
+            >
+                צ'ט בוטית
+                {!isLoggedIn && <span>🔒</span>}
+            </Link>
+            <Link to="/signup" className={styles.appLink}>הרשמה</Link>
+            <Link to="/" className={styles.appLink}>כניסה</Link>
+            <Link to="/home" className={styles.appLink}>
+            <img src={homeIcon} alt="Home" className={styles.icon} />
+          </Link>
           </nav>
         </header>
         <Suspense fallback={<Loading />}>
