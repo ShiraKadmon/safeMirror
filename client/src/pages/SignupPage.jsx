@@ -1,16 +1,45 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../styles/SignupPage.module.css'; // Import the styles
+import styles from '../styles/SignupPage.module.css';
 
 function SignupPage() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [birthDate, setBirthDate] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [confirmPasswordError, setConfirmPasswordError] = useState('');
+
+    const validatePassword = (password) => {
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!passwordRegex.test(password)) {
+            setPasswordError(
+                 '.הסיסמה חייבת להיות באורך של לפחות 8 תווים וכוללת אותיות רישיות וקטנות, מספר וסימן מיוחד'
+            );
+            return false;
+        } else {
+            setPasswordError('');
+            return true;
+        }
+    };
 
     const handleSignup = async (e) => {
         e.preventDefault();
+
+        
+    if (password !== confirmPassword) {
+        setConfirmPasswordError('Passwords do not match!');
+        return;
+    } else {
+        setConfirmPasswordError('');
+    }
+
+    if (!validatePassword(password)) {
+        alert('Password is too  weak!');
+        return;
+    }
 
         // Create the data object to send to the server
         const signupData = {
@@ -77,14 +106,32 @@ function SignupPage() {
                             required
                         />
                     </div>
-                    <div className={styles.inputGroup}>
+                     <div className={styles.inputGroup}>
                         <label>Password:</label>
                         <input
                             type="password"
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            onChange={(e) => {
+                                setPassword(e.target.value);
+                                validatePassword(e.target.value);
+                            }}
                             required
                         />
+                        {passwordError && (
+                            <p className={styles.errorText}>{passwordError}</p>
+                        )}
+                    </div>
+                    <div className={styles.inputGroup}>
+                        <label>Confirm Password:</label>
+                        <input
+                            type="password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            required
+                        />
+                        {confirmPasswordError && (
+                            <p className={styles.errorText}>{confirmPasswordError}</p>
+                        )}
                     </div>
                     <div className={styles.inputGroup}>
                         <label>Phone Number:</label>

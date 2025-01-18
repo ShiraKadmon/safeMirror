@@ -22,7 +22,7 @@ const Loading = () => {
         alt="טוען..."
         style={{
           display: "block",
-          maxWidth: "30%",
+          maxWidth: "20%",
           height: "auto",
         }}
       />

@@ -35,6 +35,8 @@
     background-size: cover;
     background-position: 10% 50%;
     background-repeat: no-repeat;
+    margin-left: 20px;
+    transform: scaleX(-1);
   }
   
   .professionalList {
