@@ -24,7 +24,6 @@ import styles from './styles/App.module.css';
 // import PositiveContentPage from './pages/PositiveContentPage/PositiveContentPage';
 import projectLogo from './assets/Safe-Mirror-logo.png';
 import homeIcon from './assets/home-icon.png';
-import ProtectedRoute from "./ProtectedRoute";
 import backgroundImage from './assets/background-image.jpg';
 import Loading from "./components/Loading.jsx";
 import { useAuth } from "./AuthProvider";
@@ -49,13 +48,13 @@ function App() {
         <header className={styles.appHeader}>
           <img src={projectLogo} alt="Logo" className={styles.appLogo} />
           <nav className={styles.appNav}>
-          {isLoggedIn && (<button onClick={handleLogout} className={styles.appLink}>
-                        יציאה
-            </button>)}
+          {isLoggedIn && (  <Link to="/login" onClick={handleLogout} className={styles.appLink}>
+                יציאה
+            </Link>)}
           <Link to="/about" className={styles.appLink}>על הפרוייקט</Link>
                     
-            <Link to={isLoggedIn ? "/profile" : "#"} className={styles.appLink}>פרופיל
-            {!isLoggedIn && <span>🔒</span>}</Link>
+            {isLoggedIn && (<Link to={isLoggedIn ? "/profile" : "#"} className={styles.appLink}>פרופיל
+            </Link>)}
             <Link to="/professional-support" className={styles.appLink}>תמיכה מקצועית</Link>
             <Link to={isLoggedIn ? "/forum" : "#"} className={styles.appLink}>פורום
             {!isLoggedIn && <span>🔒</span>}</Link>
@@ -74,8 +73,8 @@ function App() {
                 בוטית
                 {!isLoggedIn && <span>🔒</span>}
             </Link>
-            <Link to="/signup" className={styles.appLink}>הרשמה</Link>
-            <Link to="/login" className={styles.appLink}>כניסה</Link>
+            {!isLoggedIn && (<Link to="/signup" className={styles.appLink}>הרשמה</Link>)}
+            {!isLoggedIn && (<Link to="/login" className={styles.appLink}>כניסה</Link>)}
             <Link to="/home" className={styles.appLink}>
             <img src={homeIcon} alt="Home" className={styles.icon} />
           </Link>
@@ -85,14 +84,14 @@ function App() {
         <main className={styles.main}>
             <Routes>
               <Route path="/home" element={<Home />} />
-              <Route path="/chatbot" element={<ProtectedRoute><BotPage /></ProtectedRoute>} />          
-              <Route path="/quiz" element={<ProtectedRoute><QuizPage /></ProtectedRoute>} />          
-              <Route path="/profile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
+              <Route path="/chatbot" element={<BotPage />} />          
+              <Route path="/quiz" element={<QuizPage />} />          
+              <Route path="/profile" element={<UserProfile />} />
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignupPage />} />
               <Route path="/quiz" element={<QuizPage />}/>
-              <Route path="/forum" element={<ProtectedRoute><ForumPage /></ProtectedRoute>} />
+              <Route path="/forum" element={<ForumPage />} />
               <Route path="/professional-support" element={< ProfessionalSupportPage />} />
               <Route path="/about" element={< AboutPage />} />
             </Routes>

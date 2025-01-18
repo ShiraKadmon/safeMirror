@@ -29,7 +29,8 @@
   
   .inputGroup {
     margin-bottom: 1rem;
-    text-align: left;
+    text-align: right;
+    direction: rtl;
   }
   
   .inputGroup label {
@@ -43,6 +44,8 @@
     padding: 0.75rem;
     border: 1px solid #ddd;
     border-radius: 8px;
+    box-sizing: border-box; /* מוודא שהתיבה מתאימה לגודל ההורה */
+
   }
   
   .loginButton {

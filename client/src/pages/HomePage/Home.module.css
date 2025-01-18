@@ -1,6 +1,8 @@
-/* .home {
+.home {
   text-align: center;
   padding: 20px;
+  direction: rtl;
+
 }
 
 .headline {
@@ -13,58 +15,8 @@
   font-size: 1.5em;
   margin-bottom: 20px;
   color: #53474F;
-}
+  direction: rtl;
 
-.botpicture {
-  position: center;
-  align-self: center;
-  width: 400px; 
-  height: auto;
-}
-
-.imagebutton {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-.imagebutton:hover {
- opacity: 0.7;
-}
-
-.imagebutton img {
-  display: block;
-  width: 400px;
-  height: auto;
-}
-
-.container {
-  display: flex; /* מפעיל Flexbox */
-  /* flex-direction: row; מסדר את הילדים לרוחב */
-  /* justify-content: center; ממרכז את הילדים אופקית */
-  /* align-items: center; ממרכז את הילדים אנכית */
-  /* gap: 10px; רווח בין האלמנטים */
-  /* padding: 20px;
-} */
-
- /* */ 
- .home {
-  text-align: center;
-  padding: 20px;
-}
-
-.headline {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  color: #53474F;
-}
-
-.secondarytext {
-  font-size: 1.5em;
-  margin-bottom: 20px;
-  color: #53474F;
 }
 
 .imageButtonWrapper {
@@ -101,6 +53,7 @@
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   color: white;
+  direction: rtl;
   font-size: 1.5em;
   font-weight: bold;
   opacity: 0;

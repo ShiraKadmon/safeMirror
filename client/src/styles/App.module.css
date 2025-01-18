@@ -20,6 +20,8 @@
 
 .appNav {
   display: flex;
+  align-items: center; /* מוודא שכולם מיושרים אנכית */
+
   gap: 20px;
 }
 

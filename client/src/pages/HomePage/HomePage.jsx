@@ -1,44 +1,3 @@
-// import { useNavigate ,  useLocation} from "react-router-dom";
-// import { useEffect, useState } from "react";
-// import styles from './Home.module.css';
-// import botButton from '../../assets/Safe-Mirror-Button.png';
-// import DailyTip from "../../components/DailyTip/DailyTip";
-
-
-// function Home() {
-//   const navigate = useNavigate();
-//   const location = useLocation();
- 
-//   // const message = location.state?.message || 'Welcome!'; // Default message if none is passed
-//   // console.log('Message from location:', message); // Debug the message
-
-//   const [message, setMessage] = useState(null); // State to store the message
-
-//   useEffect(() => {
-//     // Check if message exists in location.state
-//     if (location.state?.message) {
-//       setMessage(location.state.message); // Store the message in state
-//     }
-//   }, [location.state]);
-
-
-//   const goToBot = () => {
-//     navigate("/chatbot");
-//   };  
-  
-//   return (
-//     <div className={styles.home}>
-//       <h1 className={styles.headline}>Welcome to Safe Mirror!</h1>
-//       <h2 className={styles.secondarytext}>Your safe place for conversations to raise self-confidence and body image</h2>
-//       <button onClick={goToBot} className={styles.imagebutton}>
-//         <img src={botButton} alt="chat-bot" className={styles.botpicture} />
-//       </button>
-//       <DailyTip initialMessage={message} /> {/* Pass the message to DailyTip */}
-//     </div>
-//   );
-// };
-
-// export default Home;
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../AuthProvider"; // Import AuthProvider for authentication
 import styles from "./Home.module.css";
@@ -64,9 +23,9 @@ function Home() {
 
     return (
         <div className={styles.home}>
-            <h1 className={styles.headline}>Welcome to Safe Mirror!</h1>
+            <h1 className={styles.headline}>ברוכה הבאה ל-Safe Mirror</h1>
             <h2 className={styles.secondarytext}>
-                Your safe place for conversations to raise self-confidence and body image
+            המקום הבטוח שלך לשיחות שמעלות את הביטחון העצמי ודימוי הגוף
             </h2>
             <div
                 className={styles.imageButtonWrapper}
@@ -79,8 +38,7 @@ function Home() {
                 />
                 {!isLoggedIn && (
                     <div className={styles.overlay}>
-                        Click to Log in to access personalized features like the chatbot, daily tips, and more!
-
+                        לחצי כדי להתחבר ולגשת לתכונות מותאמות אישית כמו הצ'אטבוט, טיפים יומיים ועוד!
                     </div>
                 )}
             </div>
