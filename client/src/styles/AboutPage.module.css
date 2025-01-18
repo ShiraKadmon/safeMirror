@@ -1,0 +1,47 @@
+.about {
+    text-align: right;
+    padding: 20px;
+    direction: rtl;
+  }
+  
+  .headline {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #53474F;
+  }
+  
+  .subHeadline {
+    font-size: 2em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #53474F;
+  }
+  
+  .text {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #666;
+  }
+  
+  .list {
+    text-align: right;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    max-width: 800px;
+    direction: rtl;
+  }
+  
+  .list li {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    text-align: right;
+  }
+  
+  .footer {
+    font-size: 1em;
+    margin-top: 30px;
+    color: #888;
+  }  
