@@ -7,7 +7,7 @@ function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const { setIsLoggedIn, setEmailg ,setName } = useAuth(); // Ensure setUser is destructured
+    const { setIsLoggedIn, setEmailg ,setName,setAge ,setPositiveContent} = useAuth(); // Ensure setUser is destructured
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -30,7 +30,10 @@ function LoginPage() {
                 setName(result.userName);
                 console.log('User name:', result.userName);
                 setEmailg(email);
-                navigate('/home', { state: { message: result.message } }); // Pass the message
+                console.log('Age:', result.age);
+                setAge(result.age);
+                setPositiveContent(result.message);
+                navigate('/home'); // Pass the message
             } else {
                 console.error('Login failed:', response.status, response.statusText);
                 alert('Login failed. Please check your email and password.');

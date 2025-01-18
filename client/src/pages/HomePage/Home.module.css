@@ -1,4 +1,4 @@
-.home {
+/* .home {
   text-align: center;
   padding: 20px;
 }
@@ -42,11 +42,73 @@
 
 .container {
   display: flex; /* מפעיל Flexbox */
-  flex-direction: row; /* מסדר את הילדים לרוחב */
-  justify-content: center; /* ממרכז את הילדים אופקית */
-  align-items: center; /* ממרכז את הילדים אנכית */
-  gap: 10px; /* רווח בין האלמנטים */
+  /* flex-direction: row; מסדר את הילדים לרוחב */
+  /* justify-content: center; ממרכז את הילדים אופקית */
+  /* align-items: center; ממרכז את הילדים אנכית */
+  /* gap: 10px; רווח בין האלמנטים */
+  /* padding: 20px;
+} */
+
+ /* */ 
+ .home {
+  text-align: center;
   padding: 20px;
 }
 
+.headline {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #53474F;
+}
+
+.secondarytext {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #53474F;
+}
+
+.imageButtonWrapper {
+  position: relative; /* Needed for positioning overlay text */
+  display: inline-block;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.botpicture {
+  width: 400px;
+  height: auto;
+  display: block;
+  transition: opacity 0.3s ease; /* Smooth fade effect */
+}
+
+.requiresLogin {
+  opacity: 0.7; /* Dim the image slightly */
+  pointer-events: none; /* Prevent interaction for unauthenticated users */
+}
+
+.requiresLogin:hover {
+  opacity: 1; /* Restore full opacity on hover */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Smooth fade-in effect */
+  pointer-events: none; /* Prevent interaction */
+}
+
+.imageButtonWrapper:hover .overlay {
+  opacity: 1; /* Show overlay on hover */
+}
 

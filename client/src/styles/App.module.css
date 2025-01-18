@@ -42,7 +42,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  {/*background-color: #FFDCE8;*/}
 }
 
 .footer {
@@ -57,4 +56,3 @@
 .footer p {
   margin: 0;
 }
-  
