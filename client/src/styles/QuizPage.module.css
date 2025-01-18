@@ -129,6 +129,13 @@ button:active {
   color: #4caf50;
 }
 
+.icon {
+  width: 20px; /* התאמת גודל האייקון */
+  height: 20px;
+  margin-left: 5px; /* ריווח בין האייקון לטקסט */
+  vertical-align: middle; /* ליישור האייקון עם הטקסט */
+}
+
 .loading {
   margin-top: 10px;
   font-size: 0.9rem;

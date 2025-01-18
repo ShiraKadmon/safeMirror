@@ -2,6 +2,9 @@ import { useState } from 'react';
 import styles from '../styles/QuizPage.module.css';
 import QuizIcon from "/src/assets/quiz-icon2.jpg";
 //import { useAuth } from '../../AuthProvider';
+import questionIcon from '/src/assets/question-icon.png';
+import userIcon from '/src/assets/user-icon.png';
+import botIcon from '/src/assets/bot-icon.png';
 
 const QuizPage = () => {
   const [loading, setLoading] = useState(false);
@@ -131,9 +134,15 @@ const QuizPage = () => {
       <div className={styles.chatHistory}>
         {chatHistory.slice().map((chat, index) => (
           <div key={index} className={styles.chatBlock}>
-            <div>❓ שאלה: {chat.question}</div>
-            <div>👩 תשובה שלך: {chat.userAnswer}</div>
-            <div>🤖 תשובת הבוט: {chat.botResponse}</div>
+            <div>
+              <img src={questionIcon} alt="שאלה" className={styles.icon} /> שאלה: {chat.question}
+            </div>
+            <div>
+              <img src={userIcon} alt="תשובה שלך" className={styles.icon} /> תשובה שלך: {chat.userAnswer}
+            </div>
+            <div>
+              <img src={botIcon} alt="תשובת הבוטית" className={styles.icon} /> תשובת הבוטית: {chat.botResponse}
+            </div>
           </div>
         ))}
       </div>
