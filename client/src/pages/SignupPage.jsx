@@ -30,14 +30,14 @@ function SignupPage() {
 
         
     if (password !== confirmPassword) {
-        setConfirmPasswordError('Passwords do not match!');
+        setConfirmPasswordError('הסיסמאות לא תואמות');
         return;
     } else {
         setConfirmPasswordError('');
     }
 
     if (!validatePassword(password)) {
-        alert('Password is too  weak!');
+        alert('סיסמא חלשה מדי, נסי שנית');
         return;
     }
 
@@ -77,10 +77,10 @@ function SignupPage() {
     return (
         <div className={styles.signupContainer}>
             <div className={styles.signupBox}>
-                <h2 className={styles.title}>Sign Up</h2>
+                <h2 className={styles.title}>הרשמה</h2>
                 <form onSubmit={handleSignup} className={styles.form}>
                     <div className={styles.inputGroup}>
-                        <label>Name:</label>
+                        <label>שם:</label>
                         <input
                             type="text"
                             value={name}
@@ -89,7 +89,7 @@ function SignupPage() {
                         />
                     </div>
                     <div className={styles.inputGroup}>
-                        <label>Email:</label>
+                        <label>אימייל:</label>
                         <input
                             type="email"
                             value={email}
@@ -98,7 +98,7 @@ function SignupPage() {
                         />
                     </div>
                     <div className={styles.inputGroup}>
-                        <label>Birth Date:</label>
+                        <label>תאריך לידה:</label>
                         <input
                             type="date"
                             value={birthDate}
@@ -107,7 +107,7 @@ function SignupPage() {
                         />
                     </div>
                      <div className={styles.inputGroup}>
-                        <label>Password:</label>
+                        <label>סיסמא:</label>
                         <input
                             type="password"
                             value={password}
@@ -122,7 +122,7 @@ function SignupPage() {
                         )}
                     </div>
                     <div className={styles.inputGroup}>
-                        <label>Confirm Password:</label>
+                        <label>אימות סיסמא:</label>
                         <input
                             type="password"
                             value={confirmPassword}
@@ -134,7 +134,7 @@ function SignupPage() {
                         )}
                     </div>
                     <div className={styles.inputGroup}>
-                        <label>Phone Number:</label>
+                        <label>מספר טלפון:</label>
                         <input
                             type="text"
                             value={phoneNumber}
@@ -142,9 +142,9 @@ function SignupPage() {
                             required
                         />
                     </div>
-                    <button type="submit" className={styles.signupButton}>Sign Up</button>
+                    <button type="submit" className={styles.signupButton}>הרשמי</button>
                     <p className={styles.signInText}>
-                        Already have an account? <Link to="/login" className={styles.link}>Log In</Link>
+                        כבר יש לך חשבון? <Link to="/login" className={styles.link}>התחברי</Link>
                     </p>
                 </form>
             </div>

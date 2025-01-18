@@ -56,13 +56,13 @@ function UserProfile() {
             });
 
             if (response.ok) {
-                alert("Profile updated successfully!");
+                alert("הפרופיל עודכן בהצלחה");
             } else {
-                alert("Failed to update profile. Please try again.");
+                alert("העדכון נכשל. בבקשה נסי שוב");
             }
         } catch (error) {
             console.error("Error updating profile:", error);
-            alert("An error occurred while updating the profile.");
+            alert("קרתה שגיאה במהלך העדכון");
         }
     };
 
@@ -77,19 +77,19 @@ function UserProfile() {
     return (
         <div className={styles.userProfileContainer}>
             <div className={styles.userProfileBox}>
-                <h2 className={styles.title}>User Profile</h2>
+                <h2 className={styles.title}>פרופיל משתמש</h2>
                 {user ? (
                     <form onSubmit={handleSubmit} className={styles.form}>
                         <div className={styles.inputGroup}>
-                            <label>Name:</label>
+                            <label>שם:</label>
                             <input type="text" name="name" value={user.name} onChange={handleChange} required />
                         </div>
                         <div className={styles.inputGroup}>
-                            <label>Email:</label>
+                            <label>אימייל:</label>
                             <input type="text" name="email" value={email} readOnly />
                         </div>
                         <div className={styles.inputGroup}>
-                            <label>Birth Date:</label>
+                            <label>תאריך לידה:</label>
                             <input
                                 type="date"
                                 name="birthDate"
@@ -99,7 +99,7 @@ function UserProfile() {
                             />
                         </div>
                         <div className={styles.inputGroup}>
-                            <label>Phone Number:</label>
+                            <label>מספר טלפון:</label>
                             <input
                                 type="tel"
                                 name="phoneNumber"
@@ -109,11 +109,11 @@ function UserProfile() {
                             />
                         </div>
                         <button type="submit" className={styles.updateButton}>
-                            Update Profile
+                            עדכני פרופיל
                         </button>
                     </form>
                 ) : (
-                    <p className={styles.loadingText}>Loading user data...</p>
+                    <p className={styles.loadingText}>טוען פרטי משתמש</p>
                 )}
                 {error && <p className={styles.errorText}>{error}</p>}
             </div>

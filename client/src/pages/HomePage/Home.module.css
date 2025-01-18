@@ -1,7 +1,8 @@
-
- .home {
+.home {
   text-align: center;
   padding: 20px;
+  direction: rtl;
+
 }
 
 .headline {
@@ -14,6 +15,8 @@
   font-size: 1.5em;
   margin-bottom: 20px;
   color: #53474F;
+  direction: rtl;
+
 }
 
 .imageButtonWrapper {
@@ -24,7 +27,7 @@
 }
 
 .botpicture {
-  width: 400px;
+  width: 450px;
   height: auto;
   display: block;
   transition: opacity 0.3s ease; /* Smooth fade effect */
@@ -50,6 +53,7 @@
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
   color: white;
+  direction: rtl;
   font-size: 1.5em;
   font-weight: bold;
   opacity: 0;

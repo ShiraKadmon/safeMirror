@@ -46,10 +46,10 @@ function LoginPage() {
     return (
         <div className={styles.loginContainer}>
             <div className={styles.loginBox}>
-                <h2 className={styles.title}>Login</h2>
+                <h2 className={styles.title}>התחברות</h2>
                 <form onSubmit={handleLogin} className={styles.form}>
                     <div className={styles.inputGroup}>
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="email">אימייל:</label>
                         <input
                             id="email"
                             type="email"
@@ -59,7 +59,7 @@ function LoginPage() {
                         />
                     </div>
                     <div className={styles.inputGroup}>
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">סיסמא:</label>
                         <input
                             id="password"
                             type="password"
@@ -68,9 +68,9 @@ function LoginPage() {
                             required
                         />
                     </div>
-                    <button type="submit" className={styles.loginButton}>Login</button>
+                    <button type="submit" className={styles.loginButton}>התחברי</button>
                     <p className={styles.signUpText}>
-                        Not registered yet? <Link to="/signup" className={styles.link}>Sign Up</Link>
+                        לא נרשמת עוד? <Link to="/signup" className={styles.link}>הרשמי</Link>
                     </p>
                 </form>
             </div>
