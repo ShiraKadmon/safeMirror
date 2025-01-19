@@ -10,19 +10,31 @@ const ProfessionalSupportPage = () => {
       </div>
       <div className={styles.professionalList}>
         <div className={styles.professionalItem}>
-          <h3>פסיכולוגית קלינית</h3>
-          <p>התמחות בבעיות דימוי גוף ונפש. זמינה להתייעצות.</p>
-          <button className={styles.contactButton}>פני אליי</button>
+          <div className={styles.rowContainer}>
+            <div className={styles.columnContainer}>
+              <h3>פסיכולוגית קלינית</h3>
+              <p>התמחות בבעיות דימוי גוף ונפש. זמינה להתייעצות.</p>
+            </div>
+            <button className={styles.contactButton}>פני אליי</button>
+          </div>
         </div>
         <div className={styles.professionalItem}>
-          <h3>תזונאית</h3>
-          <p>מדריכה על תזונה מאוזנת ושמירה על גוף בריא.</p>
-          <button className={styles.contactButton}>פני אליי</button>
+        <div className={styles.rowContainer}>
+            <div className={styles.columnContainer}>
+              <h3>תזונאית</h3>
+              <p>מדריכה על תזונה מאוזנת ושמירה על גוף בריא.</p>
+            </div>
+            <button className={styles.contactButton}>פני אליי</button>
+          </div>
         </div>
         <div className={styles.professionalItem}>
-          <h3>מאמנת אישית</h3>
-          <p>התמחות בהעצמה אישית ושיפור ביטחון עצמי.</p>
-          <button className={styles.contactButton}>פני אליי</button>
+        <div className={styles.rowContainer}>
+            <div className={styles.columnContainer}>
+              <h3>מאמנת אישית</h3>
+              <p>התמחות בהעצמה אישית ושיפור ביטחון עצמי.</p>
+            </div>
+            <button className={styles.contactButton}>פני אליי</button>
+          </div>
         </div>
       </div>
     </div>

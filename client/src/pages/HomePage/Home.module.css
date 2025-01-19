@@ -1,13 +1,13 @@
 .home {
   text-align: center;
-  padding: 20px;
+  padding: 5px;
   direction: rtl;
 
 }
 
 .headline {
-  font-size: 2.5em;
-  margin-bottom: 20px;
+  font-size: 2.25em;
+  margin-bottom: 10px;
   color: #53474F;
 }
 
@@ -27,10 +27,14 @@
 }
 
 .botpicture {
-  width: 450px;
+  width: 400px;
   height: auto;
   display: block;
   transition: opacity 0.3s ease; /* Smooth fade effect */
+}
+
+.botpicture:hover {
+  opacity: 0.5; /* Dim the image slightly on hover */
 }
 
 .requiresLogin {
