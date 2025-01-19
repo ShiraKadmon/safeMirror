@@ -77,7 +77,7 @@ function UserProfile() {
     return (
         <div className={styles.userProfileContainer}>
             <div className={styles.userProfileBox}>
-                <h2 className={styles.title}>פרופיל משתמש</h2>
+                <h2 className={styles.title}>פרופיל משתמשת</h2>
                 {user ? (
                     <form onSubmit={handleSubmit} className={styles.form}>
                         <div className={styles.inputGroup}>
