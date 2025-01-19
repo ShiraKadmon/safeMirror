@@ -23,7 +23,7 @@ function Home() {
 
     return (
         <div className={styles.home}>
-            <h1 className={styles.headline}>ברוכה הבאה ל-Safe Mirror</h1>
+            <h1 className={styles.headline}>ברוכה הבאה ל-SafeMirror</h1>
             <h2 className={styles.secondarytext}>
             המקום הבטוח שלך לשיחות שמעלות את הביטחון העצמי ודימוי הגוף
             </h2>
