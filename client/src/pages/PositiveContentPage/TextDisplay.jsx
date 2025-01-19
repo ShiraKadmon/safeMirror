@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import styles from "./TextDisplay.module.css";
 
 const TextDisplay = ({ customStyles, fileUrl, title, source }) => {
   const [content, setContent] = useState("");
 
   useEffect(() => {
-    // קריאת התוכן מתוך קובץ .txt
+    // read txt file
     const fetchText = async () => {
       try {
         const response = await fetch(fileUrl);
@@ -30,5 +31,13 @@ const TextDisplay = ({ customStyles, fileUrl, title, source }) => {
     </div>
   );
 };
+
+// Adding prop types validation
+TextDisplay.propTypes = {
+    customStyles: PropTypes.object,
+    fileUrl: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    source: PropTypes.string.isRequired,
+  };
 
 export default TextDisplay;
