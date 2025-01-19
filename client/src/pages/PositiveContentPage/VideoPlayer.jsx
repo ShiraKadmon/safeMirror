@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import styles from "./VideoPlayer.module.css";
 
 const VideoPlayer = ({ videoURL, title}) => {
@@ -15,5 +15,12 @@ const VideoPlayer = ({ videoURL, title}) => {
         </div>
     );
 };
+
+// Adding prop types validation
+VideoPlayer.propTypes = {
+    videoURL: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  };
+  
 
 export default VideoPlayer;
