@@ -54,7 +54,7 @@ const AddPost = ({ setLoading }) => {
         onChange={(e) => setContent(e.target.value)}
       />
       <button type="submit" className="forum-send-button">
-        Add Post
+        הוספת פוסט
       </button>
     </form>
   );
