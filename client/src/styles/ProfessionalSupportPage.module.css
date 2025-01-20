@@ -7,7 +7,7 @@
     width: 50%;
     max-width: 2000px;
     margin: 20px auto;
-    border: 1px solid #FF7D9C;
+    border: 1px solid #53474F;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -51,13 +51,30 @@
   
   .professionalItem {
     background-color: white;
-    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     margin-bottom: 20px;
   }
+
+  .columnContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rowContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
   
   .professionalItem h3 {
+    margin-bottom: 0px;
     font-size: 18px;
     font-weight: bold;
     color: #4a4a4a;
@@ -77,6 +94,7 @@
     cursor: pointer;
     font-size: 16px;
     margin-top: 10px;
+    align-self: center;
   }
   
   .contactButton:hover {

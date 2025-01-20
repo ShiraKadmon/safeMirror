@@ -96,7 +96,7 @@ const PostsList = ({ loading }) => {
               placeholder="הוסיפי תגובה..."
             />
             <button type="submit" className="forum-send-button">
-              Add Comment
+              הוספת תגובה
             </button>
           </form>
         </div>
