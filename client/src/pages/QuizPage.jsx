@@ -5,13 +5,14 @@ import QuizIcon from "/src/assets/quiz-icon2.jpg";
 import questionIcon from '/src/assets/question-icon.png';
 import userIcon from '/src/assets/user-icon.png';
 import botIcon from '/src/assets/bot-icon.png';
+import {useAuth} from "../AuthProvider";
 
 const QuizPage = () => {
   const [loading, setLoading] = useState(false);
   const [question, setQuestion] = useState('');
   const [userAnswer, setUserAnswer] = useState('');
   const [chatHistory, setChatHistory] = useState([]);
-  const userAge = 15; //We will subtract the age from the data base 
+  const {age} = useAuth(); //We will subtract the age from the data base 
 
   // Function to handle asking a new question
   const handleAskQuestion = async () => {
@@ -29,7 +30,7 @@ const QuizPage = () => {
             content: prompt
           }
         ],
-          userAge,
+          age,
           previousQuestions: chatHistory.map(chat => chat.question),
         }),
       });
@@ -64,7 +65,7 @@ const QuizPage = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          userAge,
+          age,
           userAnswer,
           previousQuestion: question,
         }),

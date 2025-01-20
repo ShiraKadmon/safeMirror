@@ -4,14 +4,14 @@ import { getResponseFromGemini } from '../controllers/chatController.js';
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-    const { messages, userAge } = req.body;
+    const { messages, age } = req.body;
  
-    if (!messages || !userAge) {
+    if (!messages || !age) {
         return res.status(400).json({ error: 'Missing required fields: messages or userAge' });
     }
 
     try {
-        const reply = await getResponseFromGemini(messages, userAge);
+        const reply = await getResponseFromGemini(messages, age);
         res.json({ reply });
     } catch (error) {
         console.error('Error:', error);

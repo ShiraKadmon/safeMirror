@@ -7,11 +7,11 @@ const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 export const getPositiveQuestion = async (req, res) => {
-  const { userAge, previousQuestions  } = req.body;
+  const { age, previousQuestions  } = req.body;
 
-  // Validate userAge and previousQuestions parameters
-  if (!userAge || typeof userAge !== 'number') {
-    console.error('Invalid age:', userAge);
+  // Validate age and previousQuestions parameters
+  if (!age || typeof age !== 'number') {
+    console.error('Invalid age:', age);
     return res.status(400).json({ error: 'גיל המשתמשת חסר או לא תקין.' });
   }
 
@@ -21,9 +21,9 @@ export const getPositiveQuestion = async (req, res) => {
   }
 
   try {
-    // Create the prompt for the Gemini API based on userAge and previousQuestions
+    // Create the prompt for the Gemini API based on age and previousQuestions
     const prompt = `
-    את בוטית ידידותית שמדברת עם נערות בגילאי ${userAge}.
+    את בוטית ידידותית שמדברת עם נערות בגילאי ${age}.
     שאלי שאלה חיובית ומעצימה אחת בלבד שתגרום לה להרגיש טוב עם עצמה, לדוגמה: "מה את אוהבת בעצמך?" או "איזה כשרון היית רוצה לפתח?".
     אל תחזרי על שאלה ששאלת בעבר או על שאלה דומה. נסי להיות יצירתית ומגוונת בניסוח.
     אלו השאלות שכבר שאלת: ${previousQuestions.join(', ')}.
@@ -59,16 +59,16 @@ export const getPositiveQuestion = async (req, res) => {
     };
 
 export const getEmpoweringResponse = async (req, res) => {
-    const { userAge, userAnswer, previousQuestion } = req.body;
+    const { age, userAnswer, previousQuestion } = req.body;
   
-    if (!userAnswer || !userAge || typeof userAge !== 'number' || !previousQuestion) {
+    if (!userAnswer || !age || typeof age !== 'number' || !previousQuestion) {
       return res.status(400).json({ error: 'נתונים חסרים או לא תקינים.' });
     }
   
     try {
       // Create the prompt for the Gemini API to generate an empowering response
       const prompt = `
-        את בוטית ידידותית שמדברת עם נערות בגיל ${userAge}.
+        את בוטית ידידותית שמדברת עם נערות בגיל ${age}.
         השאלה ששאלת: "${previousQuestion}".
         התשובה של המשתמשת: "${userAnswer}".
         תני תשובה מעצימה וממוקדת שתגרום למשתמשת להרגיש טוב עם עצמה. הגבל את התשובה ל-300 תווים בלבד.

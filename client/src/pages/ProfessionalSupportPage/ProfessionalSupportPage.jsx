@@ -84,7 +84,7 @@ const ProfessionalSupportPage = () => {
                   <p>ארגון נוער גאה</p>
                 </div>
                 <ContactButton 
-                  openWindow={() => openWindow(<p>פרטי יצירת קשר: "דיגי 1" 054-911-9726, "דיגי 2" 054-911-9718</p>)} 
+                  openWindow={() => openWindow(<p>פרטי יצירת קשר: דיגי 1 054-911-9726, דיגי 2 054-911-9718</p>)} 
                   buttonText={"פני אלינו"} 
                 />
               </div>
@@ -98,7 +98,7 @@ const ProfessionalSupportPage = () => {
                   <p>נוער מקשיב לנוער, לפניות מצוקה של בני נוער</p>
                 </div>
                 <ContactButton 
-                  openWindow={() => openWindow(<p>פרטי יצירת קשר: 1-800-22-3011, ימים א'-ה' 20:00-17:00</p>)} 
+                  openWindow={() => openWindow(<p>פרטי יצירת קשר: 1-800-22-3011, ימים א-ה 20:00-17:00</p>)} 
                   buttonText={"פני אלינו"} 
                 />
               </div>
@@ -153,7 +153,7 @@ const ProfessionalSupportPage = () => {
             <div className={styles.professionalItem}>
                 <div className={styles.columnContainer}>
                 <h3> <a className={styles.professionalLink} href="https://www.instagram.com/lori__stern/" target="_blank" rel="noopener noreferrer">@lori_stern</a></h3>
-                <p>בחורה צעירה, אקטיביסטית לקידום דימוי גוף חיובי, דוגמנית למידות גדולות שהופיעה ב'ווג'.</p>
+                <p>בחורה צעירה, אקטיביסטית לקידום דימוי גוף חיובי, דוגמנית למידות גדולות שהופיעה בווג.</p>
                 </div>
             </div>
 
@@ -200,7 +200,7 @@ const ProfessionalSupportPage = () => {
             <div className={styles.professionalItem}>
               <div className={styles.columnContainer}>
                 <h3><a className={styles.professionalLink} href="https://www.instagram.com/raysegev/" target="_blank" rel="noopener noreferrer">@raysegev</a></h3>
-                <p>ממובילות המאבק לשינוי אידיאל היופי בישראל, נחשבת לדוגמנית ה'פלאס סייז' הישראלית הראשונה, יוצרת תוכן ובעלת פודקאסט.</p>
+                <p>ממובילות המאבק לשינוי אידיאל היופי בישראל, נחשבת לדוגמנית הפלאס סייז הישראלית הראשונה, יוצרת תוכן ובעלת פודקאסט.</p>
               </div>
             </div>
 
@@ -208,7 +208,7 @@ const ProfessionalSupportPage = () => {
             <div className={styles.professionalItem}>
               <div className={styles.columnContainer}>
                 <h3><a className={styles.professionalLink} href="https://www.instagram.com/zorikit/" target="_blank" rel="noopener noreferrer">@zorikit</a></h3>
-                <p>זוהר מקדמת דימוי גוף חיובי ומנהלת את קהילה "השמנמנות של זוריק" המקדמת את הנושא @thiccbyzorik.</p>
+                <p>זוהר מקדמת דימוי גוף חיובי ומנהלת את קהילה השמנמנות של זוריק המקדמת את הנושא @thiccbyzorik.</p>
               </div>
             </div>
 
@@ -240,7 +240,7 @@ const ProfessionalSupportPage = () => {
             <div className={styles.professionalItem}>
               <div className={styles.columnContainer}>
                 <h3><a className={styles.professionalLink} href="https://www.instagram.com/jillianmercado/" target="_blank" rel="noopener noreferrer">@jillianmercado</a></h3>
-                <p>ג'יליאן היא דוגמנית שחיה המתנהלת על כיסא גלגלים ומאתגרת את סטנדרט היופי בתעשיית האופנה.</p>
+                <p>גיליאן היא דוגמנית שחיה המתנהלת על כיסא גלגלים ומאתגרת את סטנדרט היופי בתעשיית האופנה.</p>
               </div>
             </div>
 
@@ -248,7 +248,7 @@ const ProfessionalSupportPage = () => {
             <div className={styles.professionalItem}>
               <div className={styles.columnContainer}>
                 <h3><a className={styles.professionalLink} href="https://www.instagram.com/keah_maria/" target="_blank" rel="noopener noreferrer">@keah_maria</a></h3>
-                <p>קיה היא סופרת, עיתונאית ופעילה לקידום זכויות בעלי.ות מוגבלויות. היא חולקת בחוויותיה כאישה עם מוגבלות ומדברת על נושאים חברתיים כמו זכויות להטב"ק.</p>
+                <p>קיה היא סופרת, עיתונאית ופעילה לקידום זכויות בעלי.ות מוגבלויות. היא חולקת בחוויותיה כאישה עם מוגבלות ומדברת על נושאים חברתיים כמו זכויות להטבק.</p>
               </div>
             </div>
 
