@@ -25,8 +25,7 @@ function Home() {
         <div className={styles.home}>
             <h1 className={styles.headline}>ברוכה הבאה ל-SafeMirror</h1>
             <h2 className={styles.secondarytext}>
-            המקום הבטוח שלך לשיחות שמעלות את הביטחון העצמי ודימוי הגוף
-            </h2>
+            המקום הבטוח שלך להתמודדות עם אתגרי הרשתות החברתיות, לחיזוק הביטחון העצמי, לשיפור דימוי הגוף, וללמידה מעצימה.            </h2>
             <div
                 className={styles.imageButtonWrapper}
                 onClick={isLoggedIn ? goToBot : gotologin} // Only handle click if logged in

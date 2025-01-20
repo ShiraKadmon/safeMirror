@@ -10,9 +10,8 @@ const BotPage = () => {
   // const { email } = useAuth(); // Access global user data
   const [loading, setLoading] = useState(false);
   
-  const {name} = useAuth(); //We will subtract the name from the data base
+  const {name, age} = useAuth(); //We will subtract the name from the data base
   //const {age} = useAuth(); //We will subtract the age from the data base 
-  const userAge = 15; //We will subtract the age from the data base 
 
 //   useEffect(() => {
 //     const getName = async () => {
@@ -65,7 +64,7 @@ const BotPage = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ messages: updatedMessages, userAge }),
+          body: JSON.stringify({ messages: updatedMessages, age }),
         });
 
         if (!response.ok) {

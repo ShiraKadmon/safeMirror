@@ -4,7 +4,7 @@ import styles from '../styles/UserProfile.module.css'; // Import the styles
 
 function UserProfile() {
     const [user, setUser] = useState(null);
-    const { email } = useAuth(); // Access global user data
+    const { email ,name,setName} = useAuth(); // Access global user data
     const [error, setError] = useState('');
 
     useEffect(() => {
@@ -54,6 +54,9 @@ function UserProfile() {
                     phoneNumber: user.phoneNumber,
                 }),
             });
+            if(user.name != name){
+                setName(user.name);
+            }
 
             if (response.ok) {
                 alert("הפרופיל עודכן בהצלחה");

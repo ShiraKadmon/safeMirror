@@ -23,7 +23,7 @@ const hasBodyImageBeenDiscussed = (history) => {
 };
 
 // Main function to process a response
-export const getResponseFromGemini = async (history, userAge) => {
+export const getResponseFromGemini = async (history, age) => {
   try {
     // Checking the integrity of the history
     if (!Array.isArray(history) || history.some(msg => !msg.text || !msg.sender)) {
@@ -41,7 +41,7 @@ export const getResponseFromGemini = async (history, userAge) => {
     }
 
     // Create the prompt with the formatted history and age and limit answer to 300 characters
-    let prompt = `${formattedHistory}\n\nשאלה חדשה: ${history[history.length - 1].text}\nגיל: ${userAge}\nנושא: דימוי גוף חיובי, ביטחון עצמי, השפעת המדיה.\nמטרה: לעודד דימוי גוף בריא ולהגביר את הערך העצמי.\n\nענה באופן מותאם גיל: אם מדובר בילדה מתחת לגיל 13, ענה בצורה חינוכית, רגועה ובסגנון פשוט, תוך הצעת חיזוקים חיוביים ומילים מעודדות; בגילאי 13-18 ענה בצורה שמתאימה לגיל ההתבגרות, תוך התמקדות בהעצמה אישית, פתרונות אפשריים להתמודדות עם קשיים, ותשובות שיכולות לעזור במצבי לחץ רגשי. חשוב שהתשובה תהיה קשורה ישירות לשאלה ולתחושות של המשתמשת, ולא תספק תשובות גנריות או חפיפות בנושאים שלא הוזכרו בשיחה.\n\n**הגבל את התשובה שלך ל-300 תווים בלבד.**`;
+    let prompt = `${formattedHistory}\n\nשאלה חדשה: ${history[history.length - 1].text}\nגיל: ${age}\nנושא: דימוי גוף חיובי, ביטחון עצמי, השפעת המדיה.\nמטרה: לעודד דימוי גוף בריא ולהגביר את הערך העצמי.\n\nענה באופן מותאם גיל: אם מדובר בילדה מתחת לגיל 13, ענה בצורה חינוכית, רגועה ובסגנון פשוט, תוך הצעת חיזוקים חיוביים ומילים מעודדות; בגילאי 13-18 ענה בצורה שמתאימה לגיל ההתבגרות, תוך התמקדות בהעצמה אישית, פתרונות אפשריים להתמודדות עם קשיים, ותשובות שיכולות לעזור במצבי לחץ רגשי. חשוב שהתשובה תהיה קשורה ישירות לשאלה ולתחושות של המשתמשת, ולא תספק תשובות גנריות או חפיפות בנושאים שלא הוזכרו בשיחה.\n\n**הגבל את התשובה שלך ל-300 תווים בלבד.**`;
 
     // If body image has been discussed before, shift the focus of the response to emotional support
     if (hasBodyImageBeenDiscussed(history)) {
