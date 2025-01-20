@@ -65,6 +65,9 @@ export const loginUser = async (req, res) =>{
         return res.status(400).json({ error: 'Invalid credentials' });
       }
       console.log('user login succesfuly:', user.name);
+      const today = new Date();
+      const birth = new Date(user.birthDate);
+      const age = today.getFullYear() - birth.getFullYear();
 
       const messages = await notification.find({ ageGroup: user.ageGroup });
 
@@ -78,7 +81,7 @@ export const loginUser = async (req, res) =>{
           res.status(200).json({
               message: randomMessage.message,
               userName: user.name,
-              age: user.ageGroup
+              age: age
           });
         } else {
           res.status(404).json({ message: '❌ לא נמצאו הודעות מתאימות בקבוצת גיל זו.' });
