@@ -6,7 +6,7 @@ const BotPage = lazy(() => import('./pages/BotPage/BotPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const SignupPage = lazy(() => import('./pages/SignupPage'));
 const UserProfile = lazy(() => import('./pages/UserProfile'));
-const ProfessionalSupportPage = lazy(() => import('./pages/ProfessionalSupportPage'));
+const ProfessionalSupportPage = lazy(() => import('./pages/ProfessionalSupportPage/ProfessionalSupportPage.jsx'));
 const ForumPage = lazy(() => import('./pages/ForumPage'));
 const QuizPage = lazy(() => import('./pages/QuizPage.jsx'));
 const AboutPage = lazy(() => import('./pages/AboutPage.jsx'));
@@ -56,7 +56,7 @@ function App() {
                     
             {isLoggedIn && (<Link to={isLoggedIn ? "/profile" : "#"} className={styles.appLink}>פרופיל
             </Link>)}
-            <Link to="/professional-support" className={styles.appLink}>תמיכה מקצועית</Link>
+            <Link to="/professional-support" className={styles.appLink}>תמיכה ברשת</Link>
             <Link to="/positive-content" className={styles.appLink}>תוכן חיובי</Link>
             <Link to={isLoggedIn ? "/forum" : "#"} className={styles.appLink}>פורום
             {!isLoggedIn && <span>🔒</span>}</Link>
