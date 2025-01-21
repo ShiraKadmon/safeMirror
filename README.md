@@ -31,15 +31,3 @@ Forum Pagination: Implementing pagination for forum scalability.
 ## Project Structure:
 Client Directory (client/): Contains the React application, including assets, components, and services.
 Server Directory (server/): The Express backend handling API requests and serving data.
-
-## Introduction
-This template includes a simple feature to display a random rubber duck from example READ ONLY database. 
-This feature demonstrates the integration of the frontend with the backend and can be used to test if your setup is working correctly.
-
-1. Client:
-   - The home page contains a button labeled `Show Random Duck`.
-   - When clicked, this button sends a request to the backend to fetch a random rubber duck.
-   - The details of the random rubber duck, including its name and image, are displayed on the page.
-2. Backend:
-   - The server has an endpoint `/api/rubberDucks/random` that selects a random rubber duck from the database and returns its details in the response.
-   - The server contains more endpoints, but without corresponding implementation in the client. These endpoints are to set example of more types of requests.
