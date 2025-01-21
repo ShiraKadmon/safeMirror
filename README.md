@@ -14,11 +14,11 @@ Anonymous forum: A safe space for users to share experiences and connect.
 Professional content & support pages: Featuring expert resources, social media profiles of inspiring women, and motivational content.
 
 ## Technologies Used:
-Backend: Node.js, Express
-Frontend: React, Vite
-Database: MongoDB
-Bot Integration: GEMINI API (used for bot and quiz features)
-WhatsApp Notifications: Ultramsg API
+Backend: Node.js, Express.
+Frontend: React, Vite.
+Database: MongoDB.
+Bot Integration: GEMINI API (used for bot and quiz features).
+WhatsApp Notifications: Ultramsg API.
 
 ## Future Enhancements:
 Mobile Application: Development of a mobile app version for improved accessibility.
